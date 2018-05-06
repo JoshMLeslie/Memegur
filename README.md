@@ -1,26 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin16]
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
+* Pre-run setup:
+  * rails db:setup
+  * npm install
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+  * pending
 
 * Deployment instructions
+  * A parachute is advised
 
-* ...
+***
 
 FullStack setup: https://github.com/appacademy/curriculum/blob/master/full-stack-project/proposal/full-stack-project-proposal.md
