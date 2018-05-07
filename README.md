@@ -15,3 +15,5 @@
 ***
 
 FullStack setup: https://github.com/appacademy/curriculum/blob/master/full-stack-project/proposal/full-stack-project-proposal.md
+
+https://github.com/appacademy/curriculum/blob/master/react/readings/checklist.md
