@@ -24,3 +24,7 @@
 * possible gems for uploading:
   * carrierWave: https://github.com/carrierwaveuploader/carrierwave
   * paperclip: https://github.com/thoughtbot/paperclip
+=======
+FullStack setup: https://github.com/appacademy/curriculum/blob/master/full-stack-project/proposal/full-stack-project-proposal.md
+
+https://github.com/appacademy/curriculum/blob/master/react/readings/checklist.md
