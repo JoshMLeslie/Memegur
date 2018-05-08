@@ -24,14 +24,13 @@ class User < ApplicationRecord
 
   def reset_session_token!
     generate_unique_session_token
-    save!
+    self.save!
     self.session_token
   end
 
-  private
-
+private
   def ensure_session_token
-    generate_unique_session_token unless self.session_token
+    self.session_token || generate_unique_session_token
   end
 
   def new_session_token

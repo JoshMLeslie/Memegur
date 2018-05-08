@@ -1,7 +1,20 @@
-read -p "Setup will take a hot minute. Begin? (y/n)" -n 1 -r
+read -p "Setup will take a hot minute. This folder must be on the desktop. Begin? Tap 'y' || 'n'" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    # do dangerous stuff
-    npm install && bundle install && rails db:setup
+  osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/Memegur && npm install"' && # install frontend dependencies
+  bundle install && # install backend dependencies
+  rails db:setup &&
+
+  read -p "Start rails server and webpack? (y/n)" -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      echo "starting server and webpack" &&
+      osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/Memegur && npm run webpack"' &&
+      osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/Memegur && rails s"' &&
+      echo "navigate to localhost:3000 for access"
+    fi
+
+  echo "init complete"
 fi
