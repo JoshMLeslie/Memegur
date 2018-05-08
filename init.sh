@@ -2,7 +2,7 @@ read -p "Setup will take a hot minute. This folder must be on the desktop. Begin
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-  osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/Memegur && npm install"' && # install frontend dependencies
+  osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/ToMemeOrNot && npm install"' && # install frontend dependencies
   bundle install && # install backend dependencies
   rails db:setup &&
 
@@ -11,8 +11,8 @@ then
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
       echo "starting server and webpack" &&
-      osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/Memegur && npm run webpack"' &&
-      osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/Memegur && rails s"' &&
+      osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/ToMemeOrNot && npm run webpack"' &&
+      osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/ToMemeOrNot && rails s"' &&
       echo "navigate to localhost:3000 for access"
     fi
 
