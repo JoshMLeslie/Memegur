@@ -19,12 +19,10 @@ const TestPage = () => {
 
 const App = () => {
   return (
-    <div>
+    <main>
       <Header />
 
-
-
-    </div>
+    </main>
   );
 };
 

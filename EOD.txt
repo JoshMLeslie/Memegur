@@ -7,3 +7,13 @@ END OF DAY REPORTS
   - logout button needs to be dealt with NOT in the app.jsx file. Pain in the ass it is try and slap it in there (needs if(props.currentUser) )
   - had to revert back errors in 'session_actions.js' instead of trying to put them into one 'const' and chain that in. Maybe later.
   - otherwise everything seems to be up and running to this point
+
+180508:
+  - a lot of css work done, a lot to be done.
+  --spend at most an hour figuring out how to position the damn sign-in form, currently stuck in the middle of the page up its own ass.
+  ---look at the NYTimes project
+  - Moving onto establishing posts tomorrow (from the db up)
+  - refactored header.jsx, feels more readable now. Also converted it from a headless object into a fully fledged class. Wohoo.
+  -- dealt with the logout button / displaying username when logged in 'const UserBlock'
+  --- logout button works.
+  

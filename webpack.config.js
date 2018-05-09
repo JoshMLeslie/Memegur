@@ -1,7 +1,9 @@
 const path = require('path');
 
+// production development
+
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   context: __dirname,
   entry: './frontend/memegur.jsx',
   output: {

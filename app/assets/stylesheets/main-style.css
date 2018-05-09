@@ -1,5 +1,12 @@
 html {
   list-style: none;
+  background: #121212;
+}
+
+main {
+  width: 1000px;
+  position: relative;
+  margin: 0 auto;
 }
 
 form {
@@ -8,30 +15,72 @@ form {
 }
 
 .button-link {
-  background: aqua;
-  padding: 1%;
+  color: white;
+  padding: 2%;
   margin: 1%;
+  font-size: 24px;
+  padding-right: 10px;
+}
+
+.button-link:hover {
+  background: gray;
+  border-radius: 10px;
+}
+
+#header{
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  background: #40484f;
+  padding: 1%;
+  height: 50px;
+  position: relative;
+}
+
+#session-form {
+  position: absolute;
+  top: 20%;
+  left: 37.5%;
+
 }
 
 #form-button {
   text-align: center;
 }
 
-#header{
-  border: 1px solid black;
-  padding: 0 2% 0 2%;
-  display: flex;
-  justify-content: space-between;
+#header div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
 
 #header-navigation {
-
-  background: gray;
+  display: flex;
+  font-family: sans-serif;
+  padding-right: 1%;
 }
 
-#header-session-links{
+#header-session-links {
   position: absolute;
+  top: 1%;
+  right: 1%;
 }
+
+#header-session-links a {
+  color: white;
+  padding: 3px;
+}
+
+#header-session-links a:hover {
+  background: gray;
+  padding: 3px;
+  border-radius: 10px;
+}
+#header-session-links a:first-child {
+  margin-right: 5px;
+}
+
 #header-session-links form {
   position: relative;
   right: 5%;
