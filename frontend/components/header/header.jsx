@@ -15,7 +15,7 @@ class Header extends React.Component {
     // always renders site block (on left)
     const MemegurLogo = () => (
       <div id="header-navigation">
-        <Link to="/" className="button-link" > MEMEGUR </Link>
+        <Link to="/" className="button-link" > ToMemeOrNot </Link>
         <FaCloudUpload size={30} style={{color: '#00BFFF'}}/>
       </div>
     );
@@ -45,12 +45,12 @@ class Header extends React.Component {
         return (
           <Route path="/" render={() => (
             <div id="header-session-links" className="session-links">
-              <ButtonLink to="/login" text={"Login!"}> </ButtonLink>
-              <ButtonLink to="/signup" text={"Sign Up!"}> </ButtonLink>
+              <ButtonLink to="/login" text={"Login!"} />
+              <ButtonLink to="/signup" text={"Sign Up!"} />
             </div>
           )} /> );
         } else {
-          return (<div>What in tarnation?</div>);
+          return (<div></div>);
         }
       };
 

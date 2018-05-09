@@ -9,7 +9,7 @@ const App = () => {
   return (
     <main>
       <Header />
-      <ShowSession /> // if on the right page
+      <ShowSession />
 
     </main>
   );

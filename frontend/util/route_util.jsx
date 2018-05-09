@@ -8,7 +8,9 @@ const Auth = ({component: Component, path, loggedIn, exact}) => {
       path={path}
       exact={exact}
       render={ (props) => (
-          !loggedIn ? ( <Component {...props} /> ) : ( <Redirect to='/' />)
+          !loggedIn ?
+          ( <Component {...props} /> ) :
+          ( <Redirect to='/' />)
         )
       }
     />
@@ -21,10 +23,11 @@ export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 
 // ButtonLink
 // to replace <button><Link></Link></button>
-const Button = ({to, text, exact}) => {
+const Button = ({id, to, text, exact}) => {
   return (
     <button>
       <Link
+        id={id}
         to={to}
         exact={exact}
         style={ {display: 'block', height: '100%'} }
