@@ -1,5 +1,6 @@
 html {
   --off-gray: #a4aab2;
+  --mid-gray: #70747a;
   --dark-gray: #40484f;
   --light-blue: #7EB6FF;
 
@@ -47,58 +48,6 @@ main {
   }
 }
 
-#session-form {
-  max-width: 25%;
-  margin: 0 auto;
-  margin-top: 5%;
-  background: var(--dark-gray);
-  padding: 10px;
-  border-radius: 10%;
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
-
-  label {
-    color: var(--off-gray);
-  }
-
-  h3 {
-    color: white;
-  }
-}
-
-#forgot-login {
-/* 'forgot login' link on '/login' session form if wanting to change later */
-}
-
-#form-button {
-  display: flex;
-  justify-content: flex-end;
-
-  button {
-    margin-left: 10px;
-    font-size: 12px;
-
-    &:first-child {
-      margin-left: 10px;
-      font-size: 12px;
-    }
-
-    &:last-child {
-      color: white;
-      background: var(--light-blue);
-      padding: 10px 15px;
-      font-size: 14px;
-      border-radius: 5px;
-    }
-
-    &:last-child:disabled {
-      background: var(--off-gray);
-    }
-  }
-}
 
 #header-navigation {
   display: flex;
@@ -110,11 +59,7 @@ main {
   position: absolute;
   top: 1%;
   right: 1%;
-
-  form {
-    position: relative;
-    right: 5%;
-  }
+  font-size: 14px;
 
   a {
     color: white;
@@ -129,5 +74,76 @@ main {
     &:first-child {
       margin-right: 5px;
     }
+  }
+}
+
+#session-form {
+  max-width: 29%;
+  margin: 0 auto;
+  margin-top: 5%;
+
+  #input-fields {
+    background: var(--dark-gray);
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  td {
+    color: var(--off-gray);
+  }
+
+  h3 {
+    color: white;
+  }
+
+  input {
+    margin-left: 5px;
+    width: auto;
+  }
+
+  #field-username input {
+    width: 95%;
+  }
+  #field-password input {
+    width: 63%;
+  }
+
+  #forgot-login {
+    background: var(--mid-gray);
+    height: 100%;
+    padding: 1px;
+    padding-right: 5px;
+    border-radius: 5px;
+  }
+}
+
+#form-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  a {
+    font-size: 14px;
+    padding: 5px 0 5px 5px;
+    margin-right: 10px;
+  }
+
+  button {
+    color: white;
+    background: var(--light-blue);
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+
+  button:disabled {
+    background: var(--off-gray);
   }
 }

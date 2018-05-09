@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
-import { AuthRoute, ButtonLink } from '../../util/route_util';
+import { AuthRoute } from '../../util/route_util';
 import FaCloudUpload from 'react-icons/lib/fa/cloud-upload';
 
 class Header extends React.Component {
@@ -45,8 +45,8 @@ class Header extends React.Component {
         return (
           <Route path="/" render={() => (
             <div id="header-session-links" className="session-links">
-              <ButtonLink to="/login" text={"Login!"} />
-              <ButtonLink to="/signup" text={"Sign Up!"} />
+              <Link to="/login" >Login!</Link>
+              <Link to="/signup" >Sign Up!</Link>
             </div>
           )} /> );
         } else {

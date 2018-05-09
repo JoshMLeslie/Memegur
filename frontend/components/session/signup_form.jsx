@@ -1,7 +1,7 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { withRouter } from 'react-router-dom';
-import { AuthRoute, ButtonLink } from '../../util/route_util';
+import { AuthRoute } from '../../util/route_util';
+import { Route, Redirect, Switch, Link, HashRouter, withRouter } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -87,9 +87,9 @@ class SignupForm extends React.Component {
               <br />
               <br />
               <div id="form-button">
-                <ButtonLink
-                  to={this.props.navLink}
-                  text={this.props.navLegend}/>
+                <Link
+                  to={this.props.navLink}>
+                  {this.props.navLegend} </Link>
                 <button
                   disabled={
                     this.checkPassword()

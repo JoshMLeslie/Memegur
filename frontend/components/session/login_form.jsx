@@ -1,7 +1,7 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { withRouter } from 'react-router-dom';
-import { AuthRoute, ButtonLink } from '../../util/route_util';
+import { AuthRoute } from '../../util/route_util';
+import { Route, Redirect, Switch, Link, HashRouter, withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -36,53 +36,65 @@ class LoginForm extends React.Component {
   }
 
   render () {
+    // const LoginFields = () => (
+    //
+    // );
+
+
     return (
       <div id="session-form">
+
         <h3>{this.props.formLegend}</h3>
+
         <form
           onSubmit={this.handleSubmit}
           value={this.props.formType}>
-            <div className="head-box">
 
-              <ul>{this.renderErrors()}</ul>
-            </div>
-
-            <section>
-              <label id="field-username">Username<br/>
-                <input
-                  type="text"
-                  value={this.state.username}
-                  onChange={this.update('username')}
+          <div className="error-box">
+            <ul>{this.renderErrors()}</ul>
+          </div>
+          <table id="input-fields">
+            <tbody>
+              <tr id="field-username">
+                <td>Username</td>
+                <td>
+                  <input
+                    id="username-input"
+                    type="text"
+                    value={this.state.username}
+                    onChange={this.update('username')}
                   />
-              </label>
-
-              <br />
-
-              <label id="field-password">Password<br/>
-                <input
-                  type="password"
-                  onChange={this.update('password')}
+                </td>
+              </tr>
+              <tr id="field-password">
+                <td>Password</td>
+                <td>
+                  <input
+                    id="password-input"
+                    type="password"
+                    onChange={this.update('password')}
                   />
-              </label><br/>
-              <ButtonLink
-                 id="forgot-login"
-                 to="/signup"
-                 text={"Forgot?"} />
+                  <Link
+                    id="forgot-login"
+                    to="/signup"
+                    > Forgot?
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-              <br />
-              <br />
-              <div id="form-button">
-                <ButtonLink
-                  to={this.props.navLink}
-                  text={this.props.navLegend}/>
-                <button
-                  disabled={
-                    this.state.username.length < 3 ||
-                    this.state.password.length < 6
-                  }>Assimilate
-                </button>
-              </div>
-            </section>
+          <div id="form-button">
+            <Link
+              to={this.props.navLink}>
+              {this.props.navLegend}</Link>
+            <button
+              disabled={
+                this.state.username.length < 3 ||
+                this.state.password.length < 6
+              }>Assimilate
+            </button>
+          </div>
         </form>
       </div>
     );
