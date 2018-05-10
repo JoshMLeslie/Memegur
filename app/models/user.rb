@@ -1,10 +1,19 @@
 class User < ApplicationRecord
+###################
+### Validations ###
+###################
   validates :username, :password_digest, :session_token, presence: true
-  validates :username, uniqueness: true
-  validates :password, length: { minimum: 6 }, allow_nil: true
+
+  validates :username, length: { minimum: 3 }, uniqueness: true
+  validates :password, length: { in: 6..14 }, allow_nil: true
+
+  has_many :posts
 
   after_initialize :ensure_session_token
 
+###############
+### Methods ###
+###############
   attr_reader :password
 
   def self.find_by_credentials(username, password)

@@ -15,6 +15,12 @@ class SignupForm extends React.Component {
     this.checkPassword = this.checkPassword.bind(this);
   }
 
+
+  componentWillUnmount() {
+    // make a dispatch to clear errors:
+    // this.props.clearErors
+  }
+
   update(field) {
     return (
       e => this.setState({ [field]: e.currentTarget.value })

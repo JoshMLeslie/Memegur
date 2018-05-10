@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import Header from './header';
+import HeaderItem from './header_items';
 import {login, logout} from '../../actions/session_actions';
 
 const mapStateToProps = (state, action) => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
   loginDemoUser: (user) => dispatch(login(user))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HeaderItem));

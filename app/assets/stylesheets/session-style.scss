@@ -1,22 +1,21 @@
 
 #session-form {
-  max-width: 30%;
   margin: 0 auto;
   margin-top: 10%;
+  max-width: 30%;
 
   #input-fields {
     // table
-    width: auto;
     background: var(--dark-gray);
-    padding: 10px;
     border-radius: 5px;
+    padding: 10px;
     table-layout: auto;
     width: 100%;
   }
 
   a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
   }
 
   td {

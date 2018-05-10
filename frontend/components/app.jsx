@@ -1,23 +1,19 @@
 import React from 'react';
-import Header from './header/header_container';
+import Header from './header/header';
 import ShowSession from './session/showSession';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
-
-
 
 const App = () => {
   return (
     <main>
-      <Header /><br/>
+      <Header />
       <ShowSession />
+      <TestPage></TestPage>
     </main>
   );
-  // <TestPage></TestPage>
 };
 
 export default App;
-
-
 
 const TestPage = () => {
   const style = {height: "200px"};
@@ -31,28 +27,3 @@ const TestPage = () => {
     </section>
   );
 };
-
-// depreceated
-// const App = () => {
-//   return (
-//     <div>
-//       <header>
-//         <div>
-//           <TestPage />
-//         </div>
-//
-//       <div className="session-links">
-//               <Link to='/login'>Login! </Link>
-//               <Link to='/signup'>Sign Up! </Link>
-//       </div>
-//
-//     </header>
-//
-//
-//       <AuthRoute path="/login" component={ LoginFormContainer } />
-//       <AuthRoute path="/signup" component={ SignupFormContainer } />
-//     </div>
-//   );
-// };
-//
-// export default App;
