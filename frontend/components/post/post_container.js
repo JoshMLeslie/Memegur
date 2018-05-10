@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Post from './post';
+import {signup, login, logout} from '../../actions/session_actions';
+import { fetchPost } from '../../actions/post_actions';
+import { fetchAuthor } from '../../actions/session_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const postId = ownProps.match.params.id;
   return ({
-    postId: postId,
+    postId,
     currentPost: state.entities.posts[postId],
-    author: state.entities.users[ownProps.match.params.author],
-    // author has
+    author: state.entities.users[postId],
     // comments: state.entities.comments[postId] // will it return all matching? doesnt seem like the right way to do this
   });
 };

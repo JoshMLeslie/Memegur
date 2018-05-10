@@ -10,9 +10,9 @@ export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
   posts
 });
-export const receivePost = (post) => ({
+export const receivePost = (payload) => ({
   type: RECEIVE_POST,
-  post
+  payload
 });
 export const removePost = (id) => {
   return ({
