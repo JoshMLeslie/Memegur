@@ -2,15 +2,18 @@ import React from 'react';
 import Header from './header/header';
 import ShowSession from './session/showSession';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
+import Post from './post/post_container';
+
 
 const App = () => {
   return (
     <main>
       <Header />
       <ShowSession />
-      <TestPage></TestPage>
+      <Route path="/gallery/:id" component={Post} />
     </main>
   );
+  // <TestPage></TestPage>
 };
 
 export default App;

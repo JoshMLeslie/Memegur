@@ -10,14 +10,16 @@ export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
   posts
 });
-export const receivePost = (id) => ({
+export const receivePost = (post) => ({
   type: RECEIVE_POST,
-  id
+  post
 });
-export const removePost = (id) => ({
-  type: REMOVE_POST,
-  id
-});
+export const removePost = (id) => {
+  return ({
+    type: REMOVE_POST,
+    id
+  });
+};
 
 export const receiveErrors = (errors) => {
   return ({
@@ -42,7 +44,7 @@ export const fetchPosts = () => dispatch => {
 
 export const fetchPost = (id) => dispatch => {
   PostAPI.fetchPost(id).then(
-    post => ( dispatch(receivePost(post)) ),
+    payload => ( dispatch(receivePost(payload)) ),
     error => ( dispatch(receiveErrors(error.responseJSON)) )
   );
 };

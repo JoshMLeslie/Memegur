@@ -12,13 +12,20 @@ class HeaderItem extends React.Component {
   }
 
   handleDemoUser (e) {
-    // demo user must be populated manually
     const demoUser = {
-      username: "bob",
+      username: "Bob",
       password: "bobobob"
     };
 
-    this.props.loginDemoUser(demoUser);
+    // running a pair of asyncs in sync ??? ahhhh works but feels janky
+    try {
+      // returns 422 if already created
+      this.props.ensureDemoUser(demoUser);
+    } finally {
+      // don't care about the error
+      this.props.loginDemoUser(demoUser);
+    }
+
   }
 
   render () {
