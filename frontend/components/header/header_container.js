@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Header from './header';
-import {logout} from '../../actions/session_actions';
+import {login, logout} from '../../actions/session_actions';
 
 const mapStateToProps = (state, action) => {
   return ({
@@ -10,7 +10,8 @@ const mapStateToProps = (state, action) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  loginDemoUser: (user) => dispatch(login(user))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

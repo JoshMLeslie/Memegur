@@ -10,8 +10,13 @@ html {
 
 main {
   width: 1000px;
-  position: relative;
   margin: 0 auto;
+}
+
+main section {
+  position: absolute;
+  top: 200px;
+  display: block;
 }
 
 .button-link {
@@ -24,126 +29,5 @@ main {
   &:hover {
     background: gray;
     border-radius: 10px;
-  }
-}
-
-#header {
-  border: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-  background: var(--dark-gray);
-  padding: 1%;
-  height: 50px;
-  position: relative;
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
-
-  div {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-
-#header-navigation {
-  display: flex;
-  font-family: sans-serif;
-  padding-right: 1%;
-}
-
-#header-session-links {
-  position: absolute;
-  top: 1%;
-  right: 1%;
-  font-size: 14px;
-
-  a {
-    color: white;
-    padding: 3px;
-
-    &:hover {
-      background: gray;
-      padding: 3px;
-      border-radius: 10px;
-    }
-
-    &:first-child {
-      margin-right: 5px;
-    }
-  }
-}
-
-#session-form {
-  max-width: 29%;
-  margin: 0 auto;
-  margin-top: 5%;
-
-  #input-fields {
-    background: var(--dark-gray);
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-  }
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
-
-  td {
-    color: var(--off-gray);
-  }
-
-  h3 {
-    color: white;
-  }
-
-  input {
-    margin-left: 5px;
-    width: auto;
-  }
-
-  #field-username input {
-    width: 95%;
-  }
-  #field-password input {
-    width: 63%;
-  }
-
-  #forgot-login {
-    background: var(--mid-gray);
-    height: 100%;
-    padding: 1px;
-    padding-right: 5px;
-    border-radius: 5px;
-  }
-}
-
-#form-button {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  a {
-    font-size: 14px;
-    padding: 5px 0 5px 5px;
-    margin-right: 10px;
-  }
-
-  button {
-    color: white;
-    background: var(--light-blue);
-    margin-top: 15px;
-    padding: 10px 15px;
-    font-size: 14px;
-    border-radius: 5px;
-  }
-
-  button:disabled {
-    background: var(--off-gray);
   }
 }

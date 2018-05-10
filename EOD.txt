@@ -16,4 +16,13 @@ END OF DAY REPORTS
   - refactored header.jsx, feels more readable now. Also converted it from a headless object into a fully fledged class. Wohoo.
   -- dealt with the logout button / displaying username when logged in 'const UserBlock'
   --- logout button works.
-  
+
+  180509:
+  -Spent so long on CSS today it's awful, but everything is a lot cleaner, so there's that.
+  -Got the session forms and header all squared away - realized an hour into making a session-form drop-down that Imgur actually just uses separate pages for that. So that happened.
+  -demo user works, have to manually seed it whenever I make a big change, but whatever. Can address that later.
+  -working on posts tomorrow, user profile afterwards
+  --need to ensure redirect to '/' aka 'homepage' on successful login
+  -- flex boxes for DAYS
+  -- db: post + image model / controller / json views / etc.
+  --- got my work cut out for me, which is nice.

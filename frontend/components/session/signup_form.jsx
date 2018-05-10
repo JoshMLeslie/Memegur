@@ -50,57 +50,66 @@ class SignupForm extends React.Component {
 
     return (
       <div id="session-form">
-        <h3 style={{color: "white"}}>{this.props.formLegend}</h3>
+
+        <h3>{this.props.formLegend}</h3>
+
         <form
           onSubmit={this.handleSubmit}
           value={this.props.formType}>
-            <div className="head-box">
 
-              <ul>{this.renderErrors()}</ul>
-            </div>
-
-            <section>
-              <label id="field-username">Username<br/>
-                <input
-                  type="text"
-                  value={this.state.username}
-                  onChange={this.update('username')}
+          <div className="error-box">
+            <ul>{this.renderErrors()}</ul>
+          </div>
+          <table id="input-fields">
+            <tbody>
+              <tr id="field-username">
+                <td>Username</td>
+                <td>
+                  <input
+                    id="username-input"
+                    type="text"
+                    value={this.state.username}
+                    onChange={this.update('username')}
                   />
-              </label>
-
-              <br />
-
-              <label id="field-password">Password<br/>
-                <input
-                  type="password"
-                  onChange={this.update('password')}
+                </td>
+              </tr>
+              <tr className="signup-field-password">
+                <td>Password</td>
+                <td>
+                  <input
+                    id="password-input"
+                    type="password"
+                    onChange={this.update('password')}
                   />
-              </label><br/>
-              <label id="field-password">Retype Password<br/>
-              <input
-                type="password"
-                onChange={this.update('passwordCheck')}
-                />
-              </label>
+                </td>
+              </tr>
+              <tr className="signup-field-password">
+                <td>Once More</td>
+                <td>
+                  <input
+                    type="password"
+                    onChange={this.update('passwordCheck')}/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-
-              <br />
-              <br />
-              <div id="form-button">
-                <Link
-                  to={this.props.navLink}>
-                  {this.props.navLegend} </Link>
-                <button
-                  disabled={
-                    this.checkPassword()
-                  }>Assimilate
-                </button>
-              </div>
-            </section>
+          <div id="form-button">
+            <Link
+              to={this.props.navLink}>
+              {this.props.navLegend}</Link>
+            <button
+              disabled={
+                this.state.username.length < 3 ||
+                this.state.password.length < 6
+              }>Assimilate
+            </button>
+          </div>
         </form>
       </div>
     );
   }
 }
+
 
 export default withRouter(SignupForm);
