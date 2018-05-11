@@ -12,7 +12,6 @@ import merge from 'lodash/merge';
 const commentsReducer = (state = {}, action) => {
   switch(action.type){
     case RECEIVE_POST:
-    debugger
       // add all comments of a post to State
       return merge({}, state, action.payload.comments);
     case RECEIVE_COMMENT:

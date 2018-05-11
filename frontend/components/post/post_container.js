@@ -8,10 +8,10 @@ import Post from './post';
 const mapStateToProps = (state, ownProps) => {
   const postId = ownProps.match.params.id;
   return ({
+    commentsList: Object.keys(state.entities.comments),
     postId,
     currentPost: state.entities.posts[postId],
     author: state.entities.users[postId],
-    comments: state.entities.comments[postId] // will it return all matching? doesnt seem like the right way to do this
   });
 };
 

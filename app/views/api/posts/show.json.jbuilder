@@ -2,16 +2,21 @@ json.post do
   json.partial! 'api/posts/post', post: @post
 end
 
-json.user do
-  json.set! @post.user.id do
-    json.partial! 'api/users/user', user: @post.user
-  end
-end
+authors = [@post.user]
 
 json.comments do
   @post.comments.each do |comment|
+    authors.push(comment.author)
     json.set! comment.id do
       json.partial! 'api/comments/comments', comment: comment
+    end
+  end
+end
+
+json.users do
+  authors.each do |author|
+    json.set! author.id do
+      json.partial! 'api/users/user', user: @post.user
     end
   end
 end

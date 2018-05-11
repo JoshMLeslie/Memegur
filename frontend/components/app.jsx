@@ -9,7 +9,7 @@ import Post from './post/post_container';
 
 const App = () => {
   // <StickyHeader />
-  
+
   // <Route exact path="/" component={Gallery} />
   // <Route exact path="/gallery" component={Gallery} />
   return (

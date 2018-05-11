@@ -2,7 +2,8 @@ class Api::PostsController < ApplicationController
   before_action :require_login, only: [:create, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.include(:comments)
+    # front-loads comments
     render "api/posts/index"
   end
 
