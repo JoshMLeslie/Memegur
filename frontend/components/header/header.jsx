@@ -12,11 +12,14 @@ const SiteLogo = () => (
   </div>
 );
 
-const Header = () => (
-  <div id="header">
-    <SiteLogo/>
-    <HeaderItem />
-  </div>
-);
-
-export default Header;
+export default class Header extends React.Component {
+  render () {
+    return (
+      
+      <div id="header">
+        <SiteLogo/>
+        <HeaderItem />
+      </div>
+    );
+  }
+}

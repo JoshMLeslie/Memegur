@@ -8,17 +8,9 @@ html {
   background: #121212;
 }
 
-main {
+#root {
   width: 1000px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-main section {
-  position: absolute;
-  top: 200px;
-  display: block;
 }
 
 .button-link {
@@ -32,4 +24,12 @@ main section {
     background: gray;
     border-radius: 10px;
   }
+}
+
+.filler {
+  height: 25px;
+  background-color: #121212;
+  width: 750px;
+  top: 50px;
+  position: fixed;
 }

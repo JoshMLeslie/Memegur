@@ -1,13 +1,14 @@
 #header {
-  border: 1px solid black;
   display: flex;
   justify-content: space-between;
   background: var(--dark-gray);
   padding: 1%;
   height: 50px;
+  box-sizing: border-box;
   width: 1000px;
   position: fixed;
   top: 0;
+  margin: 0 auto;
 
   a, button {
     text-decoration: none;

@@ -1,17 +1,19 @@
 import React from 'react';
 import Header from './header/header';
+import StickyHeader from './header/sticky_header';
 import ShowSession from './session/showSession';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import Post from './post/post_container';
 
 
 const App = () => {
+  // <StickyHeader />
   return (
-    <main>
+    <div>
       <Header />
       <ShowSession />
       <Route path="/gallery/:id" component={Post} />
-    </main>
+    </div>
   );
   // <TestPage></TestPage>
 };

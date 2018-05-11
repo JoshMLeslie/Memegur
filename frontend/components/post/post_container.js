@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
-import {withRouter} from 'react-router-dom';
-import Post from './post';
-import {signup, login, logout} from '../../actions/session_actions';
+import { withRouter } from 'react-router-dom';
+import { signup, login, logout } from '../../actions/session_actions';
 import { fetchPost } from '../../actions/post_actions';
-import { fetchAuthor } from '../../actions/session_actions';
+import Post from './post';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchPost: (id) => dispatch(fetchPost(id)),
-  fetchAuthor: (id) => dispatch(fetchAuthor(id))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Post));

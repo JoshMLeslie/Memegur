@@ -1,0 +1,37 @@
+#post {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 75px;
+  width: 750px;
+  box-sizing: border-box;
+}
+
+#post-header {
+  display: flex;
+  width: 750px;
+  justify-content: space-between;
+  background: white;
+  align-items: center;
+  position: fixed;
+  // margin-top: px;
+
+  div {
+
+
+  }
+
+  #post-header-left {
+
+  }
+
+  #post-header-right {
+
+  }
+
+  #post-header-next {
+    padding: 5px;
+    margin-right: 10px;
+    background: var(--off-gray);
+  }
+}
