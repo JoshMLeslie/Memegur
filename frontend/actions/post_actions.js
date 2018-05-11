@@ -4,24 +4,21 @@ export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
-// update to receive post errors
 
-export const receivePosts = (posts) => ({
+const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
   posts
 });
-export const receivePost = (payload) => ({
+const receivePost = (payload) => ({
   type: RECEIVE_POST,
   payload
 });
-export const removePost = (id) => {
-  return ({
+const removePost = (id) => ({
     type: REMOVE_POST,
     id
   });
-};
 
-export const receiveErrors = (errors) => {
+const receiveErrors = (errors) => {
   return ({
     type: RECEIVE_SESSION_ERRORS,
     errors

@@ -5,19 +5,82 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# ensure reset of id postitions
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
 User.destroy_all
 Post.destroy_all
+Comment.destroy_all
 
-bob1 = User.try(:create, {username: "Bob", password: "bobobob", bio: "I am bob"})
-bob2 = User.create(username: "Bob2", password: "bobobob", bio: "I am bob")
-bob3 = User.create(username: "Bob3", password: "bobobob", bio: "I am bob")
-bob4 = User.create(username: "Bob4", password: "bobobob", bio: "I am bob")
+bob = User.try(:create, {username: "Bob", password: "bobobob", bio: "I am bob"})
 
-bobP = Post.create(title: "bobP", body: "what is in a Bob anyways?", author_id: 1)
-bobP2 = Post.create(title: "bobP2", body: "what is in a Bob anyways?", author_id: 1)
-bobP3 = Post.create(title: "bobP3", body: "what is in a Bob anyways?", author_id: 3)
-bobP4 = Post.create(title: "bobP4", body: "what is in a Bob anyways?", author_id: 4)
+lurkerBob = User.create(
+  username: "lurkerBob",
+  password: "bobobob",
+  bio: "I am lurkerBob"
+)
+
+oneBob = User.create(
+  username: "oneBob",
+  password: "bobobob",
+  bio: "I am oneBob"
+)
+
+oppBob = User.create(
+  username: "oppBob",
+  password: "bobobob",
+  bio: "I am oppBob"
+)
+
+
+bobP = Post.create(
+  title: "postBob",
+  body: "what is in a postBob anyways?",
+  author_id: bob.id
+)
+
+bobP2 = Post.create(
+  title: "postBob",
+  body: "what is in a postBob anyways?",
+  author_id: bob.id
+)
+
+bobP3 = Post.create(
+  title: "postBob",
+  body: "what is in a postBob anyways?",
+  author_id: oneBob.id
+)
+
+bobP4 = Post.create(
+  title: "postBob",
+  body: "what is in a postBob anyways?",
+  author_id: oppBob.id
+)
+
+
+bobP = Comment.create(
+  body: "what is in a commentBob anyways?",
+  author_id: oppBob.id,
+  post_id: bobP.id
+)
+
+bobP2 = Comment.create(
+  body: "what is in a commentBob anyways?",
+  author_id: oppBob.id,
+  post_id: bobP2.id
+)
+
+bobP3 = Comment.create(
+  body: "what is in a commentBob anyways?",
+  author_id: oneBob.id,
+  post_id: bobP.id
+)
+
+bobP4 = Comment.create(
+  body: "what is in a commentBob anyways?",
+  author_id: bob.id,
+  post_id: bobP.id
+)

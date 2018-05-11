@@ -7,7 +7,11 @@ class User < ApplicationRecord
   validates :username, length: { minimum: 3 }, uniqueness: true
   validates :password, length: { in: 6..14 }, allow_nil: true
 
-  has_many :posts
+  has_many :posts,
+    foreign_key: :author_id
+
+  has_many :comments,
+    foreign_key: :author_id
 
   after_initialize :ensure_session_token
 

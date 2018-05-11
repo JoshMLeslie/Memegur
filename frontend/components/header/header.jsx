@@ -15,7 +15,6 @@ const SiteLogo = () => (
 export default class Header extends React.Component {
   render () {
     return (
-      
       <div id="header">
         <SiteLogo/>
         <HeaderItem />

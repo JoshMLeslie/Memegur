@@ -1,7 +1,3 @@
-json.post do
+json.set! post.id do
   json.extract! post, :id, :title, :body
-end
-
-json.user do
-  json.partial! 'api/users/user', user: post.user
 end

@@ -2,7 +2,7 @@ import {
   RECEIVE_POSTS,
   RECEIVE_POST,
   REMOVE_POST
-} from '../actions/post_actions';
+} from '../../actions/post_actions';
 
 import merge from 'lodash/merge';
 

@@ -1,0 +1,40 @@
+END OF DAY REPORTS
+
+180510:
+-SO LONG ON CSS.
+-Added some plugins to atom, which is cool.
+--linters, minimap scroll thing, etc.
+-90% Built up posts' show page / posts themselves
+--missing image link, but will implement with AWS over the weekend(?)
+--need to figure out the "show next meme" button
+--bootstrapped a scrolling header to the post page. I hate it but whatever. Would prefer a sticky header that jumps after a certain point, but MDN says it's unstable (unsupported 100%)
+---having the main header always scrolling is a personal choice because I think it's stupid that it doesn't on the real page.
+-building out comments tomorrow
+
+180509:
+-Spent so long on CSS today it's awful, but everything is a lot cleaner, so there's that.
+-Got the session forms and header all squared away - realized an hour into making a session-form drop-down that Imgur actually just uses separate pages for that. So that happened.
+-demo user works, have to manually seed it whenever I make a big change, but whatever. Can address that later.
+-working on posts tomorrow, user profile afterwards
+--need to ensure redirect to '/' aka 'homepage' on successful login
+-- flex boxes for DAYS
+-- db: post + image model / controller / json views / etc.
+--- got my work cut out for me, which is nice.
+
+180508:
+- a lot of css work done, a lot to be done.
+--spend at most an hour figuring out how to position the damn sign-in form, currently stuck in the middle of the page up its own ass.
+---look at the NYTimes project
+- Moving onto establishing posts tomorrow (from the db up)
+- refactored header.jsx, feels more readable now. Also converted it from a headless object into a fully fledged class. Wohoo.
+-- dealt with the logout button / displaying username when logged in 'const UserBlock'
+--- logout button works.
+
+180507:
+- login/signup links and forms display on the home page ('/')
+- properly redirects to '/' after login and when logged-in (can navigate directly to '/login' to do so)
+- can manually toss in the 'logout' ajax request to do so
+- bootstrapping c.u. works properly on page reload
+- logout button needs to be dealt with NOT in the app.jsx file. Pain in the ass it is try and slap it in there (needs if(props.currentUser) )
+- had to revert back errors in 'session_actions.js' instead of trying to put them into one 'const' and chain that in. Maybe later.
+- otherwise everything seems to be up and running to this point

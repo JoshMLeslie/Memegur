@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
     postId,
     currentPost: state.entities.posts[postId],
     author: state.entities.users[postId],
-    // comments: state.entities.comments[postId] // will it return all matching? doesnt seem like the right way to do this
+    comments: state.entities.comments[postId] // will it return all matching? doesnt seem like the right way to do this
   });
 };
 
