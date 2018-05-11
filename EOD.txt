@@ -26,3 +26,29 @@ END OF DAY REPORTS
   -- flex boxes for DAYS
   -- db: post + image model / controller / json views / etc.
   --- got my work cut out for me, which is nice.
+
+180510:
+-SO LONG ON CSS.
+-Added some plugins to atom, which is cool.
+--linters, minimap scroll thing, etc.
+-90% Built up posts' show page / posts themselves
+--missing image link, but will implement with AWS over the weekend(?)
+--need to figure out the "show next meme" button
+--bootstrapped a scrolling header to the post page. I hate it but whatever. Would prefer a sticky header that jumps after a certain point, but MDN says it's unstable (unsupported 100%)
+---having the main header always scrolling is a personal choice because I think it's stupid that it doesn't on the real page.
+-building out comments tomorrow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* // # <!-- End --> */}
