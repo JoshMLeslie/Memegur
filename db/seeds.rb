@@ -15,7 +15,7 @@ User.destroy_all
 Post.destroy_all
 Comment.destroy_all
 
-bob = User.try(:create, {username: "Bob", password: "bobobob", bio: "I am bob"})
+bob = User.try(:create, {username: "Bob", password: "bobobob", bio: "Who is Bob anyways?"})
 
 lurkerBob = User.create(
   username: "lurkerBob",
@@ -38,49 +38,49 @@ oppBob = User.create(
 
 bobP = Post.create(
   title: "postBob",
-  body: "what is in a postBob anyways?",
+  body: "What is in a postBob anyways?",
   author_id: bob.id
 )
 
 bobP2 = Post.create(
   title: "postBob",
-  body: "what is in a postBob anyways?",
+  body: "What is in a postBob anyways?",
   author_id: bob.id
 )
 
 bobP3 = Post.create(
   title: "postBob",
-  body: "what is in a postBob anyways?",
+  body: "What is in a postBob anyways?",
   author_id: oneBob.id
 )
 
 bobP4 = Post.create(
   title: "postBob",
-  body: "what is in a postBob anyways?",
+  body: "What is in a postBob anyways?",
   author_id: oppBob.id
 )
 
 
 bobP = Comment.create(
-  body: "what is in a commentBob anyways?",
+  body: "What is in a commentBob anyways?",
   author_id: oppBob.id,
   post_id: bobP.id
 )
 
 bobP2 = Comment.create(
-  body: "what is in a commentBob anyways?",
+  body: "What is in a commentBob anyways?",
   author_id: oppBob.id,
   post_id: bobP2.id
 )
 
 bobP3 = Comment.create(
-  body: "what is in a commentBob anyways?",
+  body: "What is in a commentBob anyways?",
   author_id: oneBob.id,
   post_id: bobP.id
 )
 
 bobP4 = Comment.create(
-  body: "what is in a commentBob anyways?",
+  body: "What is in a commentBob anyways?",
   author_id: bob.id,
   post_id: bobP.id
 )

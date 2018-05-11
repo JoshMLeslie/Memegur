@@ -1,0 +1,26 @@
+#post-comments {
+  display: flex;
+  flex-direction: column;
+
+  div {
+
+    background: var(--dark-gray);
+    margin-bottom: 10px;
+    padding: 10px 0 0 10px;
+    border-radius: 5px;
+
+    &:first-of-type {
+      margin-top: 10px;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--off-gray);
+    }
+
+    p {
+      line-height: 0.8%;
+      color: white;
+    }
+  }
+}

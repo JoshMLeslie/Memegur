@@ -14,15 +14,13 @@
   background: white;
   align-items: center;
   position: fixed;
-  // margin-top: px;
-
-  div {
-
-
-  }
 
   #post-header-left {
+    padding: 10px;
 
+    span {
+      font-size: 12px;
+    }
   }
 
   #post-header-right {

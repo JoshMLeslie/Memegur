@@ -5,7 +5,6 @@ import CommentItem from './comments_item';
 
 const mapStateToProps = (state, ownProps) => {
   const postInfo = state.entities.comments[ownProps.id];
-  debugger
   return ({
     postInfo,
     author: state.entities.users[postInfo.author_id]

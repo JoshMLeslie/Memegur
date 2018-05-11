@@ -9,10 +9,8 @@ const userReducer = (state = {}, action) => {
   switch(action.type){
     case RECEIVE_CURRENT_USER:
       return merge({}, state, { [action.currentUser.id]: action.currentUser});
-    case RECEIVE_POST:// same action?
-    const id = Object.keys(action.payload.users);
-      return merge({}, state, { [id]: action.payload.users});
-    // case RECEIVE_USER:
+    case RECEIVE_POST:
+      return merge({}, state, action.payload.users );
     default:
       return state;
   }

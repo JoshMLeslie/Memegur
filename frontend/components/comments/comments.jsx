@@ -11,7 +11,7 @@ export default class Comments extends React.Component {
     ));
 
     return (
-      <div id="comments">
+      <div id="post-comments">
         {comments}
       </div>
     );

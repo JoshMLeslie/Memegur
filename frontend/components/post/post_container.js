@@ -7,11 +7,20 @@ import Post from './post';
 
 const mapStateToProps = (state, ownProps) => {
   const postId = ownProps.match.params.id;
+  const currentPost = state.entities.posts[postId];
+
+  let author = "";
+  if (currentPost) {
+     author = state.entities.users[currentPost.author_id];
+  } else {
+    author = "null";
+  }
+
   return ({
-    commentsList: Object.keys(state.entities.comments),
     postId,
-    currentPost: state.entities.posts[postId],
-    author: state.entities.users[postId],
+    currentPost,
+    author,
+    commentsList: Object.keys(state.entities.comments)
   });
 };
 
