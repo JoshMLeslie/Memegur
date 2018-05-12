@@ -12,8 +12,13 @@
 
 /frontend/util/pure_util.js
   180511:
-    Doesn't calculate time properly - looks like it's based on the user createdAt instead of the comment / post / etc.
+    RESOLVED
+      Doesn't calculate time properly - looks like it's based on the user createdAt instead of the comment / post / etc.
 
 /app/controllers/api/comments_controller.rb
   180512:
     #create: doesn't properly redirect / reload post page when creating a new post
+
+routing:
+  180512:
+    when single-app loading a new page, doesn't load until a hard refresh.

@@ -10,7 +10,7 @@ export default class SiteLogo extends React.Component {
       <div id="header-navigation">
         <Link to="/" className="button-link">ToMemeOrNot</Link>
         <button
-          onClick={() => this.openModal('upload')}>
+          onClick={() => this.props.openModal('upload')}>
           <FaCloudUpload size={30} style={{color: '#00BFFF'}}/>
         </button>
       </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import { AuthRoute } from '../../util/route_util';
-import FaCloudUpload from 'react-icons/lib/fa/cloud-upload';
 import FaSearch from 'react-icons/lib/fa/search';
 import { login } from '../../actions/session_actions';
 
@@ -16,7 +15,6 @@ class HeaderItem extends React.Component {
       username: "Bob",
       password: "bobobob"
     };
-
     // running a pair of asyncs in sync ??? ahhhh works but feels janky
     try {
       // returns 422 if already created
@@ -25,7 +23,6 @@ class HeaderItem extends React.Component {
       // don't care about the error
       this.props.loginDemoUser(demoUser);
     }
-
   }
 
   render () {
@@ -37,9 +34,9 @@ class HeaderItem extends React.Component {
       <div>
         <FaSearch style={{color: "white"}}/>
       </div>
+      // search is probably going to happen
       // chat
       // notifications
-      // search is probably going to happen
     );
 
     const UserName = () => (

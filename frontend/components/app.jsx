@@ -5,6 +5,7 @@ import ShowSession from './session/showSession';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import Post from './post/post_container';
 // import Gallery from './gallery/gallery_container';
+import Modal from './modal/modal_container';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
   // <Route exact path="/gallery" component={Gallery} />
   return (
     <div>
+      <Modal />
       <Header />
       <ShowSession />
       <Route path="/gallery/:id" component={Post} />

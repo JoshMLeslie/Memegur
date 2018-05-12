@@ -9,7 +9,8 @@ export default class PostHeader extends React.Component{
   nextPage() { return window.alert("nothing yet"); }
 
   render () {
-    const title = this.props.currentPost.title;
+    const currentPost = this.props.currentPost;
+    const title = currentPost.title;
     const author = this.props.author;
 
     return (
@@ -17,7 +18,7 @@ export default class PostHeader extends React.Component{
         <div id="post-header-left">
           <h2>{title}</h2>
           <span>by: <strong>{author.username}</strong>
-            &nbsp;{timeDiff(author.updated_at)} ago
+            &nbsp;{timeDiff(currentPost.updated_at)} ago
           </span>
         </div>
         <div id="post-header-right">

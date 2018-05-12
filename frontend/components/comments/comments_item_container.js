@@ -6,10 +6,10 @@ import { updateComment, deleteComment } from '../../actions/comment_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const postInfo = state.entities.comments[ownProps.id];
+  const commentInfo = state.entities.comments[ownProps.id];
   return ({
-    postInfo,
-    author: state.entities.users[postInfo.author_id]
+    commentInfo,
+    author: state.entities.users[commentInfo.author_id]
   });
 };
 

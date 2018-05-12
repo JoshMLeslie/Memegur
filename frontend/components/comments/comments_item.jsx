@@ -11,18 +11,18 @@ export default class CommentItem extends React.Component {
   }
 
   handleDelete() {
-    debugger
+    debugger // what
     this.props.removeComment(this.props.id); //?
   }
 
   render () {
-    // const comments = this.props.list.map(())
-    const body = this.props.postInfo.body;
+    const commentInfo = this.props.commentInfo;
+    const body = commentInfo.body;
     const author = this.props.author;
     return (
       <div className="comment">
         <div id="body">
-          <label>{author.username}&nbsp;{timeDiff(author.updated_at)} ago</label>
+          <label>{author.username}&nbsp;{timeDiff(commentInfo.updated_at)} ago</label>
           <p>{body}</p>
         </div>
 
