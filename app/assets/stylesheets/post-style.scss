@@ -11,9 +11,12 @@
   display: flex;
   width: 750px;
   justify-content: space-between;
-  background: white;
+  background: var(--dark-gray);
   align-items: center;
   position: fixed;
+  color: white;
+  // border-radius: 5px 5px 0 0;
+  // need a background filler for the corners.
 
   #post-header-left {
     padding: 10px;
@@ -24,7 +27,15 @@
   }
 
   #post-header-right {
+    button {
+      background-color: var(--light-blue);
+      border-radius: 5px;
 
+      &:hover {
+        background-color: var(--mid-blue);
+      }
+
+    }
   }
 
   #post-header-next {

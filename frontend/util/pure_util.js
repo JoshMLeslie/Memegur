@@ -46,7 +46,7 @@ export const timeDiff = (updateAt) => {
     annote = "year";
   } // years
 
-  diff = precisionRound(diff, 2);
+  diff = precisionRound(diff, 1);
   if (diff > 1) { annote = annote.concat("s"); }
 
   const timeStr = `${diff} ${annote}`;

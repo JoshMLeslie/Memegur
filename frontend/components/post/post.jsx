@@ -22,9 +22,12 @@ export default class Post extends React.Component{
           author={this.props.author} />
         <img src="https://i.imgur.com/G6YUXcB.jpg"></img>
         <Comments
+          postId = {currentPost.id}
           commentsList={commentsList}
            />
       </div>
     );
   }
 }
+
+// postId is passed down for 'form'

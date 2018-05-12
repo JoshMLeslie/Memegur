@@ -1,9 +1,14 @@
 END OF DAY REPORTS
 
 180511:
--Comments!
+-Comments! On the page! With some decent styling!
 --AHHHHHHHHHHH.
-
+--added a delete button, but runs into errors on BE.
+---see issue tracking
+-Also made the comment form! New comments! New you!
+--Maybe hit it with some css tomorrow - it's really basic right now.
+-It's late. I'm going home.
+-Tearing into AWS tomorrow / the whole weekend likely. God help me.
 
 180510:
 -SO LONG ON CSS.

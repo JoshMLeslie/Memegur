@@ -3,9 +3,12 @@ html {
   --mid-gray: #70747a;
   --dark-gray: #40484f;
   --light-blue: #7EB6FF;
+  --mid-blue: #4594f9;
+  --dark-blue: #1f6dd1;
+  --bg: #121212;
 
   /* actual attributes */
-  background: #121212;
+  background: var(--bg);
 }
 
 #root {
@@ -28,8 +31,17 @@ html {
 
 .filler {
   height: 25px;
-  background-color: #121212;
+  background-color: var(--bg);
   width: 750px;
   top: 50px;
   position: fixed;
+}
+
+.bg-hider {
+  // backdrop to match background color
+  background-color: var(--bg);
+  width: 750px;
+  height: 100%;
+  top: 0;
+  z-index: -1;
 }
