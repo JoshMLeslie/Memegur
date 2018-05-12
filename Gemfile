@@ -34,7 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 
 # file uploading thru paperclip to Amazon S3
-gem 'paperclip'
+gem 'paperclip', '~> 5.0.0'
+gem 'figaro'
 gem 'aws-sdk', '< 3.0'
 
 group :development, :test do

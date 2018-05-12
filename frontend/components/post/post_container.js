@@ -9,14 +9,19 @@ const mapStateToProps = (state, ownProps) => {
   const postId = ownProps.match.params.id;
   const currentPost = state.entities.posts[postId];
 
-  let author = "";
+  let author = {};
+  let image_url = "";
+
   if (currentPost) {
      author = state.entities.users[currentPost.author_id];
+     image_url = currentPost.image_url;
   } else {
-    author = "null";
+    author = null;
+    image_url = null;
   }
 
   return ({
+    image_url,
     postId,
     currentPost,
     author,

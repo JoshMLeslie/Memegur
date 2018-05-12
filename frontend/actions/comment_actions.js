@@ -23,7 +23,6 @@ const receiveErrors = (errors) => { // placeholder
 
 
 export const createComment = (post_id, comment) => dispatch => {
-  debugger
   CommentAPI.createComment(post_id, comment).then(
     comment => {
       return (

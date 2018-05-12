@@ -20,7 +20,7 @@ export default class Post extends React.Component{
         <PostHeader
           currentPost={currentPost}
           author={this.props.author} />
-        <img src="https://i.imgur.com/G6YUXcB.jpg"></img>
+        <img src={this.props.image_url}></img>
         <Comments
           postId = {currentPost.id}
           commentsList={commentsList}

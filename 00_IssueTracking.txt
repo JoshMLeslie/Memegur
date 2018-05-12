@@ -2,14 +2,18 @@
   /post_actions.js:6
   /comment_actions.js:3
     180511:
-    update to use receive_nnn_errors instead of RECEIVE_SESSION_ERRORS since it doesn't care about it -- requires building out that whole error child(ren)
+      update to use receive_nnn_errors instead of RECEIVE_SESSION_ERRORS since it doesn't care about it -- requires building out that whole error child(ren)
 
 /frontend/components/comments
   /comments_item.jsx
   /comments_item_container.jsx
     180511:
-    Delete button isn't working -- currently hitting a server error
+      Delete button isn't working -- currently hitting a server error
 
 /frontend/util/pure_util.js
   180511:
-  Doesn't calculate time properly - looks like it's based on the user createdAt instead of the comment / post / etc.
+    Doesn't calculate time properly - looks like it's based on the user createdAt instead of the comment / post / etc.
+
+/app/controllers/api/comments_controller.rb
+  180512:
+    #create: doesn't properly redirect / reload post page when creating a new post

@@ -3,7 +3,6 @@ class Api::CommentsController < ApplicationController
 
   def create
     postId = params[:post_id]
-    debugger
     @comment = Comment.new(comment_params) #c_u => author_id
     @comment.author_id = current_user.id
     @comment.post_id ||= postId #'POST' to posts/:post_id/comments
