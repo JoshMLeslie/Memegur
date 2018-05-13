@@ -1,5 +1,4 @@
 export const createComment = (post_id, body) => {
-  debugger
   return (
     $.ajax({
       method: 'POST',

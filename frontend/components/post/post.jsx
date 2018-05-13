@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PostHeader from './post_header_container';
 import Comments from '../comments/comments';
+import isEmpty from 'lodash/isEmpty';
 
 
 export default class Post extends React.Component{
 
   componentDidMount() {
+    // currentPost is not yet defined
     this.props.fetchPost(this.props.postId);
   }
 
@@ -18,26 +20,29 @@ export default class Post extends React.Component{
     }
  }
 
+
   render () {
-    if (!this.props.currentPost) return null;
+    if (isEmpty(this.props.commentsList)) return null;
 
     const currentPost = this.props.currentPost;
     const commentsList = this.props.commentsList;
 
+    // postId is passed thru 'comments' for 'comments_form'
     return (
       <div id="post">
         <div className="filler" />
         <PostHeader
           currentPost={currentPost}
           author={this.props.author} />
-        <img src={this.props.image_url}></img>
+
+        <img
+          src={this.props.image_url}/>
+
         <Comments
-          postId = {currentPost.id}
+          postId = {this.props.postId}
           commentsList={commentsList}
            />
       </div>
     );
   }
 }
-
-// postId is passed down for 'form'

@@ -1,0 +1,22 @@
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 75px;
+  width: 1000px;
+  max-width: 1000px;
+  box-sizing: border-box;
+  background-color: var(--off-gray);
+
+  div {
+    width: 20%;
+    margin: 10px;
+    box-sizing: border-box;
+  }
+
+  div img {
+    width: 100%;
+    min-width: 150px;
+  }
+
+}

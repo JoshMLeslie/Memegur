@@ -27,7 +27,7 @@ const receiveErrors = (errors) => {
 
 export const fetchPosts = () => dispatch => {
   // preserving one long-form for posterity
-  PostAPI.fetchPosts().then(
+  return PostAPI.fetchPosts().then(
     posts => {
       return (
         dispatch(receivePosts(posts))
@@ -40,7 +40,7 @@ export const fetchPosts = () => dispatch => {
 };
 
 export const fetchPost = (id) => dispatch => {
-  PostAPI.fetchPost(id).then(
+  return PostAPI.fetchPost(id).then(
     payload => ( dispatch(receivePost(payload)) ),
     error => ( dispatch(receiveErrors(error.responseJSON)) )
   );
@@ -54,14 +54,14 @@ export const createPost = (post, callback) => dispatch => {
 };
 
 export const updatePost = (post) => dispatch => {
-  PostAPI.updatePost(post).then(
+  return PostAPI.updatePost(post).then(
     post => ( dispatch(receivePost(post)) ),
     error => ( dispatch(receiveErrors(error.responseJSON)) )
   );
 };
 
 export const deletePost = (id) => dispatch => {
-  PostAPI.deletePost(id).then(
+  return PostAPI.deletePost(id).then(
     () => ( dispatch(removePost(id)) ),
     error => ( dispatch(receiveErrors(error.responseJSON)) )
   );

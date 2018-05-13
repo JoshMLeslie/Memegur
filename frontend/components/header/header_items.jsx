@@ -65,7 +65,7 @@ class HeaderItem extends React.Component {
       } else if (pathTest) {
         return (
           <Route path="/" render={() => (
-            <div id="header-session-links" className="session-links">
+            <div id="header-session-links">
               <button onClick={this.handleDemoUser}>DemoUser</button>
               <Link to="/login" >Login!</Link>
               <Link to="/signup" >Sign Up!</Link>

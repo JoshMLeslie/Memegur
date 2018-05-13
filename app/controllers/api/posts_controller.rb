@@ -2,8 +2,8 @@ class Api::PostsController < ApplicationController
   before_action :require_login, only: [:create, :update, :destroy]
 
   def index
-    @posts = Post.all.include(:comments)
-    # front-loads comments
+    @posts = Post.all
+
     render "api/posts/index"
   end
 
@@ -22,7 +22,7 @@ class Api::PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
 
-    @post.update ? (render "api/posts/#{@post.id}") : (render json: @post.errors.full_messages, status: 422)
+    @post.update ? (render :show) : (render json: @post.errors.full_messages, status: 422)
   end
 
   def destroy

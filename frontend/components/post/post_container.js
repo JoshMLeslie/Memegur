@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { signup, login, logout } from '../../actions/session_actions';
 import { fetchPost } from '../../actions/post_actions';
 import Post from './post';
 
@@ -8,24 +7,23 @@ import Post from './post';
 const mapStateToProps = (state, ownProps) => {
   const postId = ownProps.match.params.id;
   const currentPost = state.entities.posts[postId];
-
+debugger
   let author = {};
-  let image_url = "";
+  let image_url =  "";
+  let commentsList = [];
 
   if (currentPost) {
-     author = state.entities.users[currentPost.author_id];
-     image_url = currentPost.image_url;
-  } else {
-    author = null;
-    image_url = null;
+    author = state.entities.users[currentPost.author_id];
+    image_url = currentPost.image_url;
+    commentsList = currentPost.comments_list;
   }
 
   return ({
-    image_url,
     postId,
     currentPost,
     author,
-    commentsList: Object.keys(state.entities.comments)
+    image_url,
+    commentsList,
   });
 };
 

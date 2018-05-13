@@ -1,12 +1,12 @@
 import * as CommentAPI from '../util/comment_util';
 
-export const RECEIVE_COMMENT = "RECEIVE_COMMENT"; // comment create
+export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS"; // placeholder
 
-const receiveComment = (comment) => ({
-  type: RECEIVE_COMMENT,
-  comment
+const receivePost = (payload) => ({
+  type: RECEIVE_POST,
+  payload
 });
 
 const removeComment = (id) => ({
@@ -23,26 +23,26 @@ const receiveErrors = (errors) => { // placeholder
 
 
 export const createComment = (post_id, comment) => dispatch => {
-  CommentAPI.createComment(post_id, comment).then(
-    comment => {
+  return CommentAPI.createComment(post_id, comment).then(
+    post => {
       return (
-        dispatch(receiveComment(comment))
+        dispatch(receivePost(post))
       );
     }
   );
 };
 
 export const updateComment = comment => dispatch => {
-  CommentAPI.updateComment(comment).then(
-    comment => {
+  return CommentAPI.updateComment(comment).then(
+    post => {
       return (
-        dispatch(receiveComment(comment))
+        dispatch(receivePost(post))
       );
     }
   );
 };
 export const deleteComment = id => dispatch => {
-  CommentAPI.deleteComment(id).then(
+  return CommentAPI.deleteComment(id).then(
     () => {
       return (
         dispatch(removeComment(id))
