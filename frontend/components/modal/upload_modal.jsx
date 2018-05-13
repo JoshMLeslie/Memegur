@@ -5,26 +5,31 @@ export default class UploadModal extends React.Component {
     super(props);
 
     this.state = {
-      body: "",
+      title: ".",
+      body: ".",
       imageFile: null,
       imageUrl: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
-  updateBody (e) {
-    this.setState({
-      body: e.target.value
-    });
+  update(field) {
+    return (
+      (e) => this.setState({ [field]: e.target.value })
+    );
   }
 
   updateFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
-    fileReader.onloadend = () => (
-      this.setState({ imageFile: file, imageUrl: fileReader.result })
-    ).bind(this);
+    fileReader.onloadend = () => {
+
+      return(
+        this.setState({ imageFile: file, imageUrl: fileReader.result })
+      );
+    };
 
     if (file) {
       fileReader.readAsDataURL(file);
@@ -35,22 +40,39 @@ export default class UploadModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const formData = newFormData();
-    formData.append("post[body]", this.state.body);
     if (this.state.imageFile) {
+      let formData = new FormData();
+      formData.append("post[title]", this.state.title);
+      formData.append("post[body]", this.state.body);
       formData.append("post[image]", this.state.imageFile);
+
+      this.props.processForm(formData).then(this.goToPost);
+    } else {
+      return window.alert("you need an image");
     }
-    this.props.processForm(post);
+  }
+
+  goToPost(data) {
+    const postId = data.post.id;
+    this.props.history.push(`/gallery/${postId}`);
   }
 
   render () {
 
     return (
-      <div>
-        Modal Test
+      <div id="upload-modal">
+        <label>Upload a post!</label>
+
+        <label>Title</label>
+          <input type="text" onChange={this.update("title")} />
+
+        <label>Body</label>
+          <textarea onChange={this.update("body")} />
+
+        <input type="file" onChange={this.updateFile} />
+        <button onClick={this.handleSubmit}> Make post! </button>
+        <img src={this.state.imageUrl} />
       </div>
     );
   }
-
-
 }

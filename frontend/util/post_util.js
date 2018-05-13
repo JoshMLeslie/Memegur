@@ -17,13 +17,15 @@ export const fetchPost = (id) => {
 };
 
 export const createPost = (post) => {
-  return (
-    $.ajax({
-      method: 'POST',
-      url: 'api/posts',
-      data: { post }
-    })
-  );
+  return $.ajax({
+    method: 'POST',
+    url: 'api/posts',
+    contentType: false,
+    processData: false,
+    data: post,
+    success: data => console.log(data)
+
+  });
 };
 
 export const updatePost = (post) => {

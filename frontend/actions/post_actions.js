@@ -46,8 +46,8 @@ export const fetchPost = (id) => dispatch => {
   );
 };
 
-export const createPost = (post) => dispatch => {
-  PostAPI.createPost(post).then(
+export const createPost = (post, callback) => dispatch => {
+  return PostAPI.createPost(post, callback).then(
     post => ( dispatch(receivePost(post)) ),
     error => ( dispatch(receiveErrors(error.responseJSON)) )
   );

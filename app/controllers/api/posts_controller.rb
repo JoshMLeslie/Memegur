@@ -10,7 +10,7 @@ class Api::PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
 
-    @post.save ? (render "api/posts/#{@post.id}") : (render json: @post.errors.full_messages, status: 422)
+    @post.save ? (render :show) : (render json: @post.errors.full_messages, status: 422)
   end
 
   def show
@@ -34,7 +34,7 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:body,:title)
+    params.require(:post).permit(:body,:title,:image)
   end
 
 end

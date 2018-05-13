@@ -21,4 +21,6 @@
 
 routing:
   180512:
-    when single-app loading a new page, doesn't load until a hard refresh.
+    HALF-RESOLVED
+      R~ when single-app loading a new page, doesn't load until a hard refresh.
+        X- old comments are displayed on page

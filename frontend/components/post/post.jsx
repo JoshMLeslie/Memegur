@@ -10,10 +10,20 @@ export default class Post extends React.Component{
     this.props.fetchPost(this.props.postId);
   }
 
+  componentDidUpdate(prevProps, prevState){
+    const postId = this.props.postId;
+    
+    if (postId !== prevProps.match.params.id) {
+      this.props.fetchPost(postId);
+    }
+ }
+
   render () {
     if (!this.props.currentPost) return null;
+
     const currentPost = this.props.currentPost;
     const commentsList = this.props.commentsList;
+
     return (
       <div id="post">
         <div className="filler" />

@@ -22,7 +22,7 @@ export default class Modal extends React.Component {
         onClick={this.props.closeModal}>
 
         <div
-          id="upload-modal"
+          className="modal"
           onClick={ e => e.stopPropagation()}>
 
           {chosen_modal}

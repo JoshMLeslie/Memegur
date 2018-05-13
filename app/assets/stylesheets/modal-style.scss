@@ -1,0 +1,37 @@
+.modal-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#upload-modal {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--off-gray);
+  padding: 10px;
+  border-radius: 5px;
+
+  label:first-of-type {
+    margin: 0 auto;
+  }
+
+  label {
+    padding: 5px 0 2px 0;
+  }
+
+  img {
+    height: 100px;
+    margin: 0 auto;
+  }
+}
