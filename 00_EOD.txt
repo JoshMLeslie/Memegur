@@ -1,5 +1,14 @@
 END OF DAY REPORTS
 
+180512:
+-Fuck.
+--Fuuuuuuck.
+--Uploads work fully AND on a modal too.
+---nightmare. Literally took the entire day, granted it was an 8 hour day cause I got in at noon instead of 9 / 10 like I usually do (Saturdays). Okay, I guess not that bad, but it was pulling teeth the whole way. Wasn't returning ajax promises at one point.
+---in defense, I also have AWS working with all of this too, which was an hour or two.
+- Gallery index page tomorrow (icon images, titles, etc.)
+- user pages after that.
+
 180511:
 -Comments! On the page! With some decent styling!
 --AHHHHHHHHHHH.

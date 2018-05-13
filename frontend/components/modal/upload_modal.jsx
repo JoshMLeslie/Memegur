@@ -13,6 +13,7 @@ export default class UploadModal extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.goToPost = this.goToPost.bind(this);
   }
 
   update(field) {
@@ -53,7 +54,9 @@ export default class UploadModal extends React.Component {
   }
 
   goToPost(data) {
-    const postId = data.post.id;
+    // using Object.keys is fine 'cause it's only ever one post returning at a time from 'create'
+    this.props.closeModal();
+    const postId = Object.keys(data.payload.post);
     this.props.history.push(`/gallery/${postId}`);
   }
 
