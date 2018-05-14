@@ -8,7 +8,7 @@ import isEmpty from 'lodash/isEmpty';
 export default class Post extends React.Component{
 
   componentDidMount() {
-    // currentPost is not yet defined
+    // currentPost is not yet defined => use 'postId'
     this.props.fetchPost(this.props.postId);
   }
 
@@ -37,7 +37,7 @@ export default class Post extends React.Component{
 
         <img
           src={this.props.image_url}/>
-        
+
         <div id="post-footer">
           <div id="post-footer-body">
             {this.props.body}

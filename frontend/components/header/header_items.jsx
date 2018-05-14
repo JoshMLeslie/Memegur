@@ -34,14 +34,14 @@ class HeaderItem extends React.Component {
       <div>
         <FaSearch style={{color: "white"}}/>
       </div>
-      // search is probably going to happen
+      // search is probably going to happen ?
       // chat
       // notifications
     );
 
     const UserName = () => (
       <div id="header-user" >
-        <Link to="/" > {currentUser.username} </Link>
+        <Link to={`/users/${currentUser.id}`} > {currentUser.username} </Link>
         <button onClick={logout}>Log Out</button>
       </div>
     );

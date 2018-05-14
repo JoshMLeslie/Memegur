@@ -16,7 +16,7 @@ end
 json.users do
   authors.each do |author|
     json.set! author.id do
-      json.partial! 'api/users/user', user: author
+      json.partial! 'api/users/user_lite', user: author
     end
   end
 end

@@ -3,7 +3,7 @@
   justify-content: space-between;
   background: var(--dark-gray);
   padding: 1%;
-  height: 50px;
+  height: 60px;
   box-sizing: border-box;
   width: 1000px;
   position: fixed;
@@ -14,12 +14,6 @@
   a, button {
     text-decoration: none;
     color: white;
-  }
-
-  div {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
   }
 }
 
@@ -44,11 +38,23 @@
   display: flex;
   font-family: sans-serif;
   padding-right: 1%;
+
+  button {
+    color: var(--light-blue);
+  }
+
+  button:hover {
+    color: var(--mid-blue);
+  }
+
+  button:disabled {
+    color: var(--off-gray);
+  }
 }
 
 #header-session-links {
   position: absolute;
-  top: 1%;
+  top: 35%;
   right: 1%;
   font-size: 14px;
 

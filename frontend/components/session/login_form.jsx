@@ -56,10 +56,9 @@ class LoginForm extends React.Component {
           <table id="input-fields">
             <tbody>
               <tr id="field-username">
-                <td>Username</td>
                 <td>
                   <input
-                    placeholder={username}
+                    placeholder={"username"}
                     id="username-input"
                     type="text"
                     value={this.state.username}
@@ -68,9 +67,10 @@ class LoginForm extends React.Component {
                 </td>
               </tr>
               <tr id="field-password">
-                <td>Password</td>
+
                 <td>
                   <input
+                    placeholder={"password"}
                     id="password-input"
                     type="password"
                     onChange={this.update('password')}

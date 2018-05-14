@@ -11,6 +11,11 @@
     padding: 10px;
     table-layout: auto;
     width: 100%;
+
+    input {
+      border-radius: 5px;
+      padding: 5px;
+    }
   }
 
   a {
@@ -32,15 +37,15 @@
   }
 
   #field-password input {
-    width: 68%;
+    width: 70%;
   }
 
 
   #forgot-login {
     background: var(--mid-gray);
     height: 100%;
-    padding: 1px;
-    padding-right: 5px;
+    padding: 5px;
+    margin-left: 10px;
     border-radius: 5px;
     font-size: 14px;
   }
@@ -50,7 +55,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-top: 15px;
+  padding-top: 10px;
 
   a {
     font-size: 14px;

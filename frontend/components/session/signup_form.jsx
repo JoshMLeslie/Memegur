@@ -12,7 +12,6 @@ class SignupForm extends React.Component {
       passwordCheck: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.checkPassword = this.checkPassword.bind(this);
   }
 
 
@@ -46,12 +45,6 @@ class SignupForm extends React.Component {
     );
   }
 
-  checkPassword () {
-    return (
-      this.state.username.length < 3 ||
-      (this.state.password !== this.state.passwordCheck) || this.state.password.length < 6
-    );
-  }
   render () {
 
     return (
@@ -69,9 +62,9 @@ class SignupForm extends React.Component {
           <table id="input-fields">
             <tbody>
               <tr id="field-username">
-                <td>Username</td>
                 <td>
                   <input
+                    placeholder={"username"}
                     id="username-input"
                     type="text"
                     value={this.state.username}
@@ -80,9 +73,9 @@ class SignupForm extends React.Component {
                 </td>
               </tr>
               <tr className="signup-field-password">
-                <td>Password</td>
                 <td>
                   <input
+                    placeholder={"password"}
                     id="password-input"
                     type="password"
                     onChange={this.update('password')}
@@ -90,9 +83,9 @@ class SignupForm extends React.Component {
                 </td>
               </tr>
               <tr className="signup-field-password">
-                <td>Once More</td>
                 <td>
                   <input
+                    placeholder={"once more"}
                     type="password"
                     onChange={this.update('passwordCheck')}/>
                 </td>
@@ -107,7 +100,9 @@ class SignupForm extends React.Component {
             <button
               disabled={
                 this.state.username.length < 3 ||
-                this.state.password.length < 6
+                (this.state.password !== this.state.passwordCheck) ||
+                (this.state.password.length < 6 ||
+                  this.state.password.length > 14)
               }>Assimilate
             </button>
           </div>

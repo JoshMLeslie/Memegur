@@ -11,7 +11,7 @@ class User < ApplicationRecord
     foreign_key: :author_id
 
   has_many :comments,
-    class_name: :User,
+    class_name: :Comment,
     foreign_key: :author_id
 
   after_initialize :ensure_session_token
