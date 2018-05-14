@@ -1,0 +1,18 @@
+180511:
+  /frontend
+    /actions
+      /post_actions.js:6
+      /comment_actions.js:3
+        LOW PRIORITY
+          update to use receive_nnn_errors instead of RECEIVE_SESSION_ERRORS since it doesn't care about it -- requires building out that whole error child(ren)
+
+    /components/comments
+      /comments_item.jsx
+      /comments_item_container.jsx
+        MEDIUM PRIORITY
+          comment delete button isn't working -- currently hitting a server error
+
+180513:
+  /frontend/components/gallery/gallery.jsx
+    HIGH PRIORITY
+      Switching between pages (going into a post, clicking the logo to go back to '/' and going to a new post) breaks esp. on posts made through upload (vs. seed). Don't even know what's up with that. Begin by looking at the upload form I guess and see if there's something weird going on with the uploads in the db.

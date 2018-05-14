@@ -59,6 +59,7 @@ class LoginForm extends React.Component {
                 <td>Username</td>
                 <td>
                   <input
+                    placeholder={username}
                     id="username-input"
                     type="text"
                     value={this.state.username}

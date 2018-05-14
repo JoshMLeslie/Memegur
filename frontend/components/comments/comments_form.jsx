@@ -24,18 +24,29 @@ export default class CommentForm extends React.Component {
 
   render () {
     return (
-        <div id= "comment-form">
+      <fieldset id="comment-form">
         <form onSubmit={this.handleSubmit} >
-          <input
-            type="text"
+          <textarea
+            placeholder={"new comment"}
+            maxLength={140}
             onChange={this.update}
             value={this.state.body}
             >
-          </input>
-          <button>Submit!</button>
-        </form>
+          </textarea>
+          <div id="button-area">
+            <text>
+              {140-this.state.body.length}
+            </text>
+            <button
+              disabled={
+                this.state.body.length === 0 ||
+                !this.props.currentUser
+              }>Submit!
+            </button>
 
-        </div>
+          </div>
+        </form>
+      </fieldset>
         );
   }
 

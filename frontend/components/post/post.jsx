@@ -14,7 +14,7 @@ export default class Post extends React.Component{
 
   componentDidUpdate(prevProps, prevState){
     const postId = this.props.postId;
-    
+
     if (postId !== prevProps.match.params.id) {
       this.props.fetchPost(postId);
     }
@@ -37,6 +37,12 @@ export default class Post extends React.Component{
 
         <img
           src={this.props.image_url}/>
+        
+        <div id="post-footer">
+          <div id="post-footer-body">
+            {this.props.body}
+          </div>
+        </div >
 
         <Comments
           postId = {this.props.postId}

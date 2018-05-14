@@ -1,0 +1,21 @@
+/frontend
+  /util/pure_util.js
+    ISSUE 180511
+    RESOLVED 180512
+      Doesn't calculate time properly - looks like it's based on the user createdAt instead of the comment / post / etc.
+
+  /app/controllers/api/comments_controller.rb
+    ISSUE 180512
+    RESOLVED 180512
+      #create: doesn't properly redirect / reload post page when creating a new post
+
+  /components/posts/post.js
+    ISSUE 180512
+    RESOLVED 180513
+      post body isn't displayed on the page (realizing it was never implemented. whoops.)
+
+routing:
+  ISSUE 180512
+  RESOLVED 180513
+    -when single-app loading a new page, doesn't load until a hard refresh.
+      - old comments are displayed on page

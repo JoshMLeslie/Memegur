@@ -2,16 +2,11 @@
   display: flex;
   flex-direction: column;
 
-  div {
-
+  div, fieldset {
     background: var(--dark-gray);
     margin-bottom: 10px;
     padding: 10px 0 0 10px;
     border-radius: 5px;
-
-    &:first-of-type {
-      margin-top: 10px;
-    }
 
     label {
       font-size: 12px;
@@ -19,8 +14,55 @@
     }
 
     p {
-      line-height: 0.8%;
       color: white;
+      padding-bottom: 5px;
     }
   }
+}
+
+#comment-form {
+  margin-top: 10px;
+  vertical-align: middle;
+  height: 50px;
+  position: relative;
+  z-index: 0;
+
+  textarea {
+    top: 25%;
+    font-size: 14px;
+    color: white;
+    border: 0;
+    resize: none;
+    min-height: 35px;
+    min-width: 70%;
+    background-color: var(--dark-gray);
+  }
+
+  button {
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: var(--mid-blue);
+
+    &:disabled {
+      background-color: var(--light-blue);
+
+    }
+
+  }
+
+  #button-area {
+    position: absolute;
+    height: 75%;
+    top: 1px;
+    right: 20px;
+    display: flex;
+
+    align-items:center;
+  }
+}
+
+#body p {
+  max-width: 95%;
+  word-break: break-all;
 }

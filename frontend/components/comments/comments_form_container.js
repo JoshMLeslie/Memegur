@@ -4,9 +4,11 @@ import CommentForm from './comments_form';
 // this is a comment form container
 
 const mapStateToProps = (state, ownProps) => {
+  const currentUser = state.session.id;
   const text = ownProps.body || "";
   return ({
-    text
+    text,
+    currentUser
   });
 };
 

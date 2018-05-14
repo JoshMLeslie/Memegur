@@ -30,11 +30,12 @@ html {
 }
 
 .filler {
-  height: 25px;
+  height: 40px;
   background-color: var(--bg);
   width: 750px;
   top: 50px;
   position: fixed;
+  z-index: 8;
 }
 
 .bg-hider {
