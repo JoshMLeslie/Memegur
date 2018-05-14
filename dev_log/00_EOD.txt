@@ -1,6 +1,17 @@
 END OF DAY REPORTS
   see ./01_IssueTracking and ./02_ResolvedIssues for further detail
 
+180514:
+-lets see lets seeee....
+-pages wasn't an issue with the upload, it was that I was null-checking on the render when I should've been using default values => now using default values.
+- user page is functional and not great looking. Kinda forgot about it after getting it to a working point.
+-- shows all of a users posts and comments, and can take them to the relative posts.
+--- need to make that more obvious on comments (and posts, maybe a hover.)
+
+-vooooteesss tomorrow?
+- what are my mvps anymore anyways?
+- no new issues to report which is cool.
+
 180513:
 -oh boy. actually a decent day. not too stressful. Good Sunday.
 -got the gallery index page pretty much built. Some tweaks and flourishes to add here and there (overlaid title name, popup bar thing, etc.)

@@ -11,7 +11,6 @@ export default class CommentItem extends React.Component {
   }
 
   handleDelete() {
-    debugger // what
     this.props.removeComment(this.props.id); //?
   }
 

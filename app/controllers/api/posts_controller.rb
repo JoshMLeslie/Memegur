@@ -15,7 +15,7 @@ class Api::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-
+    
     @post ? (render :show) : (render json: @post.errors.full_messages, status: 422)
   end
 

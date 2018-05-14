@@ -10,22 +10,14 @@ export default class Gallery extends React.Component{
     this.props.fetchPosts();
   }
 
- //  componentDidUpdate(prevProps, prevState){
- //    const postId = this.props.postId;
- //
- //    if (postId !== prevProps.match.params.id) {
- //      this.props.fetchPost(postId);
- //    }
- // }
-
   render () {
     if (isEmpty(this.props.posts)) return null;
 
     const posts = this.props.posts;
-
+    
     const items = [];
     for (let key in posts) {
-      items.push(galleryItem(posts[key]));
+      items.unshift(galleryItem(posts[key]));
     }
 
     return (

@@ -34,6 +34,9 @@
     button {
       background-color: var(--light-blue);
       border-radius: 5px;
+      font-size: 20px;
+      padding: 5px;
+      margin-right: 10px;
 
       &:hover {
         background-color: var(--mid-blue);
@@ -43,9 +46,7 @@
   }
 
   #post-header-next {
-    padding: 5px;
-    margin-right: 10px;
-    background: var(--off-gray);
+
   }
 
 
