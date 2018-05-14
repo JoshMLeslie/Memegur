@@ -23,8 +23,6 @@ export const createPost = (post) => {
     contentType: false,
     processData: false,
     data: post,
-    success: data => console.log(data)
-
   });
 };
 

@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Post < ApplicationRecord
   ###################
   ### Validations ###
@@ -10,8 +12,18 @@ class Post < ApplicationRecord
 
   # has_many :votes
   has_many :comments
-  # has_one :image
 
   belongs_to :user,
     foreign_key: :author_id
+
+    attr_reader :image_remote_url
+
+  def image_remote_url=(url_value)
+    self.image = URI.parse(url_value)
+    # Assuming url_value is http://example.com/photos/face.png
+    # image_file_name == "face.png"
+    # image_content_type == "image/png"
+    @image_remote_url = url_value
+  end
+
 end

@@ -30,7 +30,7 @@ class Api::PostsController < ApplicationController
 
     @post.destroy
     # may need to change to point to '/' instead?
-    render "api/posts/"
+    # render status: 200
   end
 
   def post_params

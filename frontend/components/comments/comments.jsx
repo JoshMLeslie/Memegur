@@ -6,7 +6,8 @@ export default class Comments extends React.Component {
 
   render () {
     const comments = [];
-    this.props.commentsList.map((id) => (
+    const commentsList = this.props.commentsList || [];
+    commentsList.map((id) => (
       comments.unshift(<CommentItem key={id} id={id}/>)
     ));
     // unshift comments to show newest first.
@@ -17,7 +18,7 @@ export default class Comments extends React.Component {
 
         <div id="comment-counter">
           <p>
-            {this.props.commentsList.length} Comments
+            {commentsList.length} Comments
           </p>
         </div>
 

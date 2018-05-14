@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import isEmpty from 'lodash/isEmpty';
+import {isEmpty, size} from 'lodash';
 import CommentItem from '../comments/comments_item_container';
+import { timeDiff } from '../../util/pure_util';
 
 import HeaderEntity from './user_headers';
 
@@ -36,21 +37,53 @@ export default class User extends React.Component {
 
     if (isEmpty(this.props.entities[0])) return null;
 
-    let entity = this.props.entities[this.state.selectedEntity] || "HEY";
+    let entity = this.props.entities[this.state.selectedEntity];
 
-  let selected;
-  switch(entity.title) {
-      case "comments":
+  let selected = [];
+  if (size(entity) > 1) {
+    switch(entity.title) {
+      case 'comments':
         const comments = [];
-        debugger
-        // selected = entity.map((id) => (
-        //   comments.unshift(<CommentItem key={id} id={id}/>)
-        // ));
+          for (let key in entity) {
+            let user = this.props.entities[0].username;
+            let body = entity[key].body;
+            selected.unshift(
+              // technically this ordering is suspect since it's coming from an object / for..in
+              <Link to={`/gallery/${entity[key].post_id}`}>
+                <div key={key} id="body">
+                  <label>{user}&nbsp;{timeDiff(entity[key].updated_at)} ago</label>
+                  <p>{body}</p>
+                </div>
+              </Link>
+            );
+          }
+        selected = selected.slice(1); // generates a null value for some reason
+        break;
+      case 'posts':
+        for (let key in entity) {
+          selected.unshift(
+            <Link to={`/gallery/${key}`}>
+              <div key={key}>
+                <img src={entity[key].image_url} />
+                {timeDiff(entity[key].updated_at)}
+              </div>
+            </Link>
+          );
+        }
+        // generates a final null value for some reason
+        selected = selected.slice(1);
         break;
       default:
         selected = <div> Error </div>;
         break;
-      }
+    }
+  } else if ( size(entity) === 1) {
+    selected = <div> <label>No content</label> </div>;
+  } else {
+    selected = <div> Error </div>;
+  }
+
+
 
     return (
       <div id="user-page">

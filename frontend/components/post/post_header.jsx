@@ -9,9 +9,9 @@ export default class PostHeader extends React.Component{
   nextPage() { return window.alert("nothing yet"); }
 
   render () {
-    const currentPost = this.props.currentPost;
-    const title = currentPost.title;
-    const author = this.props.author;
+    const currentPost = this.props.currentPost || {};
+    const title = currentPost.title || "";
+    const author = this.props.author || "";
 
     return (
       <div id="post-header">

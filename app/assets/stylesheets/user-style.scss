@@ -1,5 +1,4 @@
 #user-page {
-   background-color: white;
    display: flex;
    justify-content: space-between;
    position: relative;
@@ -10,12 +9,41 @@
    width: 750px;
    max-width: 750px;
   // filler
+
+
 }
 
 #displayed-entity {
-  background-color: red;
+  background-color: var--(--dark-gray);
+
+  div {
+    border-bottom: 1px solid var(--off-gray);
+    margin-bottom: 15px;
+    margin-right: 15px;
+    img {
+      width: 180px;
+      max-width: 180px;
+      height: 180px;
+      max-height: 180px;
+    }
+  }
+  a, label {
+    color: white;
+    text-decoration: none;
+  }
 }
 
-#header-entity {
-  background-color: white;
+ul {
+  padding: 5px;
+
+  li {
+    padding: 5px;
+    margin: 5px;
+    background-color: var(--off-gray)
+  }
+}
+
+
+.active {
+  background-color: var(--mid-blue);
 }

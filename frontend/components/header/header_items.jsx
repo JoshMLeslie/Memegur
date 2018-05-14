@@ -39,12 +39,14 @@ class HeaderItem extends React.Component {
       // notifications
     );
 
-    const UserName = () => (
-      <div id="header-user" >
-        <Link to={`/users/${currentUser.id}`} > {currentUser.username} </Link>
-        <button onClick={logout}>Log Out</button>
-      </div>
-    );
+    const UserName = () => {
+      return (
+        <div id="header-user" >
+          <Link to={`/users/${currentUser.id}`} > {currentUser.username} </Link>
+          <button onClick={logout}>Log Out</button>
+        </div>
+      );
+    };
 
     const UserBlock = () => (
       // renders when a user is logged in

@@ -7,6 +7,7 @@ export default class UploadModal extends React.Component {
     this.state = {
       title: ".",
       body: ".",
+      url: "",
       imageFile: null,
       imageUrl: null
     };
@@ -26,7 +27,6 @@ export default class UploadModal extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-
       return(
         this.setState({ imageFile: file, imageUrl: fileReader.result })
       );
@@ -41,15 +41,15 @@ export default class UploadModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.imageFile) {
+    if (this.state.imageFile || this.state.url.length > 0) {
       let formData = new FormData();
       formData.append("post[title]", this.state.title);
       formData.append("post[body]", this.state.body);
-      formData.append("post[image]", this.state.imageFile);
+      formData.append("post[image]", this.state.imageFile || this.state.url);
 
       this.props.processForm(formData).then(this.goToPost);
     } else {
-      return window.alert("you need an image");
+      return window.alert("you need an image or image url");
     }
   }
 
@@ -73,6 +73,12 @@ export default class UploadModal extends React.Component {
           <textarea onChange={this.update("body")} />
 
         <input type="file" onChange={this.updateFile} />
+        or
+        <input
+          placeholder={"url"}
+          type="text"
+          onChange={this.update("url")} />
+
         <button onClick={this.handleSubmit}> Make post! </button>
         <img src={this.state.imageUrl} />
       </div>

@@ -22,7 +22,6 @@ export default class Post extends React.Component{
 
 
   render () {
-    if (isEmpty(this.props.commentsList)) return null;
 
     const currentPost = this.props.currentPost;
     const commentsList = this.props.commentsList;

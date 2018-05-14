@@ -36,11 +36,6 @@ class LoginForm extends React.Component {
   }
 
   render () {
-    // const LoginFields = () => (
-    //
-    // );
-
-
     return (
       <div id="session-form">
 
