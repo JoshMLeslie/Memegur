@@ -3,5 +3,5 @@ json.set! post.id do
 
   json.comments_list post.comments.map(&:id)
 
-  json.image_url asset_path(post.image.url)
+  json.image_url image_url(post.image.url)
 end

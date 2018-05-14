@@ -34,9 +34,9 @@ export default class CommentForm extends React.Component {
             >
           </textarea>
           <div id="button-area">
-            <text>
+            <p>
               {140-this.state.body.length}
-            </text>
+            </p>
             <button
               disabled={
                 this.state.body.length === 0 ||

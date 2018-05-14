@@ -1,36 +1,36 @@
-import * as SessionAPI from '../util/session_api_util'; //?
+import * as UserAPI from '../util/user_api_util'; //?
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 
 
-export const receiveUser = user => {
+const receiveUser = payload => {
   return ({
     type: RECEIVE_USER,
-    user
+    payload
   });
 };
 
-export const receiveUsers = users => {
+const receiveUsers = users => {
   return ({
     type: RECEIVE_USERS,
     users
   });
 };
 
-export const receiveErrors = (errors) => {
+const receiveErrors = (errors) => {
   return ({
     type: RECEIVE_SESSION_ERRORS,
     errors
   });
 };
 
-export const fetchAuthor = (id) => dispatch => {
-  SessionAPI.fetchAuthor(id).then(
-    user => {
+export const fetchUser = (id) => dispatch => {
+  return UserAPI.fetchUser(id).then(
+    payload => {
       return (
-        dispatch(receiveUser(user))
+        dispatch(receiveUser(payload))
       );
     },
     error => {
@@ -39,8 +39,8 @@ export const fetchAuthor = (id) => dispatch => {
       );}
   );
 };
-export const fetchAuthors = (ids) => dispatch => {
-  SessionAPI.fetchAuthors(ids).then(
+export const fetchUsers = () => dispatch => {
+  return UserAPI.fetchUsers().then(
     user => {
       return (
         dispatch(receiveUsers(users))

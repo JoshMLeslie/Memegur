@@ -1,0 +1,21 @@
+#user-page {
+   background-color: white;
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+   top: 75px;
+
+  // filler
+  margin: 0 auto;
+   width: 750px;
+   max-width: 750px;
+  // filler
+}
+
+#displayed-entity {
+  background-color: red;
+}
+
+#header-entity {
+  background-color: white;
+}

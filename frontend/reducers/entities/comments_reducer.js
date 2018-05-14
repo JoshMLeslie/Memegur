@@ -3,6 +3,10 @@ import {
 } from '../../actions/post_actions';
 
 import {
+  RECEIVE_USER
+} from '../../actions/user_actions';
+
+import {
   RECEIVE_COMMENT,
   REMOVE_COMMENT
 } from '../../actions/comment_actions';
@@ -11,8 +15,8 @@ import merge from 'lodash/merge';
 
 const commentsReducer = (state = {}, action) => {
   switch(action.type){
-    case RECEIVE_POST:
-      // add all comments of a post to State
+    case RECEIVE_POST: case RECEIVE_USER:
+      // add all comments of a post/user to State
       return merge({}, state, action.payload.comments);
     case RECEIVE_COMMENT:
       // add the single comment to State

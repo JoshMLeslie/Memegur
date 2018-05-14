@@ -3,7 +3,7 @@ import Header from './header/header';
 import ShowSession from './session/showSession';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import Post from './post/post_container';
-// import User from './user/user_container';
+import User from './user/user_container';
 import Gallery from './gallery/gallery_container';
 import Modal from './modal/modal_container';
 
@@ -19,10 +19,10 @@ const App = () => {
       <Route exact path="/" component={Gallery} />
       <Route exact path="/gallery" component={Gallery} />
       <Route path="/gallery/:id" component={Post} />
+      <Route path="/users/:id" component={User} />
     </div>
   );
 };
-// <Route path="/users/:id" component={User} />
 // <TestPage></TestPage>
 
 export default App;
