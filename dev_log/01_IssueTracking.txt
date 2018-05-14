@@ -13,6 +13,12 @@
           comment delete button isn't working -- currently hitting a server error
 
 180513:
-  /frontend/components/gallery/gallery.jsx
-    HIGH PRIORITY
-      Switching between pages (going into a post, clicking the logo to go back to '/' and going to a new post) breaks esp. on posts made through upload (vs. seed). Don't even know what's up with that. Begin by looking at the upload form I guess and see if there's something weird going on with the uploads in the db.
+  /frontend/components
+    /gallery/gallery.jsx
+      HIGH PRIORITY
+        Switching between pages (going into a post, clicking the logo to go back to '/' and going to a new post) breaks esp. on posts made through upload (vs. seed). Don't even know what's up with that. Begin by looking at the upload form I guess and see if there's something weird going on with the uploads in the db.
+        -heroku is also throwing some 500-internal server error when I try to upload, so signs even more so point toward that.
+
+    /session/login_form.jsx
+      HIGH PRIORITY
+        Login page is broken. (error: can't map a value). fairly sure it's due to JSON reformatting earlier today that I forgot to address.
