@@ -41,7 +41,7 @@ export default class User extends React.Component {
     for (let key in entity) {
       let newEntity = entity[key];
 
-      // sifting out the 'title' I put in
+      // sifting out the 'title' I put in => was generating an empty entity
       if (typeof newEntity !== "object") continue;
 
       let gallery = newEntity.post_id || key;

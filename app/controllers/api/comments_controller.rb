@@ -1,4 +1,6 @@
 class Api::CommentsController < ApplicationController
+  include VoteActions
+
   before_action :require_login
 
   def create

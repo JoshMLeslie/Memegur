@@ -8,7 +8,7 @@
 
 # ensure reset of id postitions
 ActiveRecord::Base.connection.tables.each do |t|
-  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+  ActiveRecord::Base.connection.reset_pk_sequence(t)
 end
 
 User.destroy_all
@@ -61,26 +61,36 @@ bobP4 = Post.create(
 )
 
 
-bobP = Comment.create(
+bobC = Comment.create(
   body: "What is in a commentBob anyways?",
   author_id: oppBob.id,
   post_id: bobP.id
 )
 
-bobP2 = Comment.create(
+bobC2 = Comment.create(
   body: "What is in a commentBob anyways?",
   author_id: oppBob.id,
   post_id: bobP2.id
 )
 
-bobP3 = Comment.create(
+bobC3 = Comment.create(
   body: "What is in a commentBob anyways?",
   author_id: oneBob.id,
   post_id: bobP.id
 )
 
-bobP4 = Comment.create(
+bobC4 = Comment.create(
   body: "What is in a commentBob anyways?",
   author_id: bob.id,
   post_id: bobP.id
 )
+
+bobP.votes.create({vote: 1, user_id: lurkerBob.id})
+bobP2.votes.create({vote: 1, user_id: lurkerBob.id})
+bobP2.votes.create({vote: 1, user_id: oppBob.id})
+bobP3.votes.create({vote: -1, user_id: oppBob.id})
+
+bobC.votes.create({vote: 1, user_id: lurkerBob.id})
+bobC2.votes.create({vote: 1, user_id: lurkerBob.id})
+bobC2.votes.create({vote: 1, user_id: oppBob.id})
+bobC3.votes.create({vote: -1, user_id: oppBob.id})

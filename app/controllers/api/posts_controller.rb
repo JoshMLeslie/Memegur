@@ -1,4 +1,6 @@
 class Api::PostsController < ApplicationController
+  include VoteActions
+
   before_action :require_login, only: [:create, :update, :destroy]
 
   def index
@@ -15,7 +17,7 @@ class Api::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    
+
     @post ? (render :show) : (render json: @post.errors.full_messages, status: 422)
   end
 

@@ -10,8 +10,11 @@ class Post < ApplicationRecord
   has_attached_file :image, default_url: "snoopy_mailbox.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  # has_many :votes
   has_many :comments
+
+  has_many :votes,
+    as: :votable
+
 
   belongs_to :user,
     foreign_key: :author_id

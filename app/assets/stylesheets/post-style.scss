@@ -22,6 +22,17 @@
   z-index: 9;
   border-radius: 5px 5px 0 0;
 
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background-color: var(--light-blue);
+    padding: 2px;
+    border-radius: 2px;
+  }
+
   #post-header-left {
     padding: 10px;
 
@@ -52,7 +63,7 @@
 
 }
 
-#post-footer {
+#post-body {
   background-color: var(--dark-gray);
   width: 100%;
   height: 100px;
@@ -60,12 +71,24 @@
   box-sizing: border-box;
   border-radius: 0 0 5px 5px;
 
-
-  #post-footer-body {
+  #post-body-contents {
     color: white;
-    padding-bottom: 5px;
     margin-right: 10px;
-    border-bottom: 2px solid var(--off-gray);
-  }
+    padding-bottom: 5px;
 
+    p {
+      border-bottom: 2px solid var(--off-gray);
+    }
+
+    button {
+      border-radius: 5px;
+      font-size: 14px;
+      padding: 5px;
+    }
+
+    button:first-of-type {
+      margin-left: 5px;
+    }
+
+  }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostHeader from './post_header_container';
+import PostBody from './post_body';
 import Comments from '../comments/comments';
 import isEmpty from 'lodash/isEmpty';
 
@@ -34,14 +35,9 @@ export default class Post extends React.Component{
           currentPost={currentPost}
           author={this.props.author} />
 
-        <img
-          src={this.props.image_url}/>
+        <img src={this.props.image_url}/>
 
-        <div id="post-footer">
-          <div id="post-footer-body">
-            {this.props.body}
-          </div>
-        </div >
+        <PostBody info={this.props} />
 
         <Comments
           postId = {this.props.postId}

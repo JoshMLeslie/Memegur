@@ -32,7 +32,7 @@ class HeaderItem extends React.Component {
     // renders on right
     const UserIcons = () => (
       <div>
-        <FaSearch style={{color: "white"}}/>
+        <FaSearch className={"icons-outline"} />
       </div>
       // search is probably going to happen ?
       // chat

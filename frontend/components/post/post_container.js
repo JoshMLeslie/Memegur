@@ -21,12 +21,8 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return ({
-    postId,
-    currentPost,
-    author,
-    body,
-    image_url,
-    commentsList,
+    postId, currentPost, author, image_url,
+    commentsList, body,
   });
 };
 

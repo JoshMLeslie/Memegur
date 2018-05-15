@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180512162409) do
+ActiveRecord::Schema.define(version: 20180515173511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20180512162409) do
     t.string "session_token", null: false
     t.string "password_digest", null: false
     t.string "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "vote", null: false
+    t.integer "user_id"
+    t.integer "votable_id"
+    t.string "votable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

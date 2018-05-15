@@ -1,5 +1,4 @@
 class Api::UsersController < ApplicationController
-  before_action :require_login, except: [:new, :create]
 
   def create
     @user = User.new(user_params)

@@ -7,8 +7,6 @@
   margin: 0 auto;
   width: 750px;
   max-width: 750px;
-
-
 }
 
 #header-entity {
@@ -32,15 +30,18 @@
       max-height: 180px;
     }
   }
+
   a, label {
     color: white;
     text-decoration: none;
+  }
+
+  label {
     cursor: pointer;
   }
 
   p {
     word-wrap: break-word;
-
   }
 
   label:hover {
@@ -58,6 +59,11 @@ ul {
     margin: 5px;
     background-color: var(--off-gray);
     border-radius: 5px;
+    cursor: pointer;
+  }
+
+  li:hover {
+    background-color: var(--mid-blue);
   }
 }
 

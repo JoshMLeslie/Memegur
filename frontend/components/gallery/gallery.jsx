@@ -14,7 +14,7 @@ export default class Gallery extends React.Component{
     if (isEmpty(this.props.posts)) return null;
 
     const posts = this.props.posts;
-    
+
     const items = [];
     for (let key in posts) {
       items.unshift(galleryItem(posts[key]));
@@ -28,25 +28,3 @@ export default class Gallery extends React.Component{
     );
   }
 }
-
-
-// const currentPost = this.props.currentPost;
-// const commentsList = this.props.commentsList;
-
-
-// postId is passed down for 'form'
-//
-// <div id="post">
-//   <div className="filler" />
-//   <PostHeader
-//     currentPost={currentPost}
-//     author={this.props.author} />
-//
-//   <img
-//     src={this.props.image_url}/>
-//
-//   <Comments
-//     postId = {currentPost.id}
-//     commentsList={commentsList}
-//      />
-// </div>

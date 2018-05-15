@@ -25,9 +25,10 @@
     }
 
     label {
-      width: 100%;
+      width: calc(100% - 5%);
       background-color: var(--off-gray);
-    }
+      padding-left: 5%;
+  }
   }
 
 }
