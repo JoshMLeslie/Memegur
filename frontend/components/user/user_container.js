@@ -13,7 +13,6 @@ const getEnts = (userId, checkEnts) => {
       // filtered and rebuilt json, basically.
     }
   }
-
   return ents;
 };
 
@@ -34,7 +33,7 @@ const mapStateToProps = (state, ownProps) => {
     user,
     comments,
     posts,
-  ];
+  ] || [];
 
   return ({
     userId,

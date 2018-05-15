@@ -15,6 +15,7 @@ export default class User extends React.Component {
     };
 
     this.selectEntity = this.selectEntity.bind(this);
+    this.makeEntity = this.makeEntity.bind(this);
   }
 
   componentDidMount() {
@@ -30,64 +31,55 @@ export default class User extends React.Component {
   }
 
   selectEntity(entity) {
+    // tab switcher
     this.setState({ selectedEntity: entity });
   }
 
-  render () {
+  makeEntity(entity) {
+    let newEntities = [];
 
-    if (isEmpty(this.props.entities[0])) return null;
+    for (let key in entity) {
+      let newEntity = entity[key];
 
-    let entity = this.props.entities[this.state.selectedEntity];
+      // sifting out the 'title' I put in
+      if (typeof newEntity !== "object") continue;
 
-  let selected = [];
-  if (size(entity) > 1) {
-    switch(entity.title) {
-      case 'comments':
-        const comments = [];
-          for (let key in entity) {
-            let user = this.props.entities[0].username;
-            let body = entity[key].body;
-            selected.unshift(
-              // technically this ordering is suspect since it's coming from an object / for..in
-              <Link to={`/gallery/${entity[key].post_id}`}>
-                <div key={key} id="body">
-                  <label>{user}&nbsp;{timeDiff(entity[key].updated_at)} ago</label>
-                  <p>{body}</p>
-                </div>
-              </Link>
-            );
-          }
-        selected = selected.slice(1); // generates a null value for some reason
-        break;
-      case 'posts':
-        for (let key in entity) {
-          selected.unshift(
-            <Link to={`/gallery/${key}`}>
-              <div key={key}>
-                <img src={entity[key].image_url} />
-                {timeDiff(entity[key].updated_at)}
-              </div>
-            </Link>
-          );
-        }
-        // generates a final null value for some reason
-        selected = selected.slice(1);
-        break;
-      default:
-        selected = <div> Error </div>;
-        break;
+      let gallery = newEntity.post_id || key;
+
+      newEntities.unshift(
+        // technically this ordering is suspect since it's coming from an object thru for..in => could pre-sort by date?
+        <Link key={key} to={`/gallery/${gallery}`}>
+          <div>
+            <label>You, &nbsp;{timeDiff(newEntity.updated_at)} ago</label>
+            {entity.title === 'comments' ?
+              <p>{newEntity.body}</p> :
+              <img src={newEntity.image_url} />
+            }
+          </div>
+        </Link>
+      );
     }
-  } else if ( size(entity) === 1) {
-    selected = <div> <label>No content</label> </div>;
-  } else {
-    selected = <div> Error </div>;
+    return newEntities;
   }
 
 
+  render () {
+    let entity = this.props.entities[this.state.selectedEntity];
+
+    let selected = [];
+    if (size(entity) > 1) {
+      selected = this.makeEntity(entity);
+    } else if ( size(entity) === 1) {
+      selected = <div> <label>No content</label> </div>;
+    } else {
+      selected = <div> Error </div>;
+    }
 
     return (
       <div id="user-page">
-        <div id="displayed-entity">
+        <div
+          id="displayed-entity"
+          className={entity.title === "posts" ? "user-gallery-image" : ""}>
           {selected}
         </div>
         <div id="header-entity">

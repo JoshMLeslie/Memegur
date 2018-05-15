@@ -5,12 +5,33 @@ export default class PostHeader extends React.Component{
   constructor(props) {
     super(props);
 
-    this.nextPage = this.nextPage.bind(this);
+    this.changePage = this.changePage.bind(this);
+    this.keyPress = this.keyPress.bind(this);
   }
 
-  nextPage() {
-    const next = this.props.currentPost.id + 1;
-    this.props.history.push(`/gallery/${next}`);
+  componentWillMount() {
+    window.addEventListener("keydown", this.keyPress);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this.keyPress);
+  }
+
+  changePage(spin) {
+    // need to add a limiting factor otherwise you can go to unmade posts.
+    const change = this.props.currentPost.id + (spin === "next" ? 1 : -1);
+    this.props.history.push(`/gallery/${change}`);
+  }
+
+  keyPress(e) {
+    switch(e.keyCode) {
+      case 37:
+        this.changePage("prev");
+        break; // technically unnecessary but the linter yells otherwise so.
+      case 39:
+        this.changePage("next");
+        break;
+    }
   }
 
   render () {
@@ -26,8 +47,9 @@ export default class PostHeader extends React.Component{
             &nbsp;{timeDiff(currentPost.updated_at)} ago
           </span>
         </div>
-        <div id="post-header-right">
-          <button onClick={this.nextPage}>Next</button >
+        <div id="post-header-right" >
+          <button onClick={() => this.changePage("prev")}>Prev</button >
+          <button onClick={() => this.changePage("next")}>Next</button >
         </div>
       </div>
     );

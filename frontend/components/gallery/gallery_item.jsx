@@ -13,12 +13,12 @@ import GifPlayer from 'react-gif-player';
 // }
 
 
-export const galleryItem = (post) => {
+export const galleryItem = ({id, title, image_url}) => {
   return (
-    <div className={"gallery-box"} key={post.id}>
-        <label>{post.title}</label>
-        <Link to={`/gallery/${post.id}`}>
-          <div className={"image-holder"}><img src={post.image_url}/></div>
+    <div className={"gallery-box"} key={id}>
+        <label>{title}</label>
+        <Link to={`/gallery/${id}`}>
+          <div className={"image-holder"}><img src={image_url}/></div>
         </Link>
     </div>
   );
