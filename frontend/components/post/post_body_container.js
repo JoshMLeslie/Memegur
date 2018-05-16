@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createVote } from '../../actions/vote_actions';
-import { deletePost } from '../../post_actions';
+import { deletePost } from '../../actions/post_actions';
 import PostBody from './post_body';
 import isEmpty from 'lodash/isEmpty';
 
