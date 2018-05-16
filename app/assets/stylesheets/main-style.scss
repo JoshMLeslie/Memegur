@@ -20,13 +20,13 @@ html {
 
 .button-link {
   color: white;
-  padding: 2%;
   margin: 1%;
   font-size: 24px;
-  padding-right: 10px;
+  padding: 2px 5px 5px 5px;
+  margin-right: 5px;
 
   &:hover {
-    background: gray;
+    background: var(--light-blue);
     border-radius: 10px;
   }
 }

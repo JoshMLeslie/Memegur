@@ -48,10 +48,10 @@ class HeaderItem extends React.Component {
       );
     };
 
+    // <UserIcons/>
     const UserBlock = () => (
       // renders when a user is logged in
       <div className="user-block">
-        <UserIcons/>
         <UserName/>
       </div>
 

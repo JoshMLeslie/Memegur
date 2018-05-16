@@ -7,8 +7,12 @@ export default class PostBody extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
+  handleDelete() {
+    this.props.removePost(this.props.id);
+  }
 
   vote(vote) {
     let settings = {

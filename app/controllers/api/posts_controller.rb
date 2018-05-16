@@ -31,12 +31,11 @@ class Api::PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
 
     @post.destroy
-    # may need to change to point to '/' instead?
-    # render status: 200
+    render "api/posts/show"
   end
 
   def post_params
-    params.require(:post).permit(:body, :title, image: [:image_file_name, :image_file_size, :image_content_type, :image_updated_at])
+    params.require(:post).permit(:body, :title, :image)
   end
 
 end

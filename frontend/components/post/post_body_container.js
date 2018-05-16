@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createVote } from '../../actions/vote_actions';
+import { deletePost } from '../../post_actions';
 import PostBody from './post_body';
 import isEmpty from 'lodash/isEmpty';
 
@@ -30,7 +31,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createVote: (settings) => dispatch(createVote(settings) )
+  createVote: (settings) => dispatch(createVote(settings) ),
+  removePost: (settings) => dispatch(deletePost(settings) )
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostBody));

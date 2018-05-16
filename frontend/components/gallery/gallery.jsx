@@ -22,8 +22,9 @@ export default class Gallery extends React.Component{
 
     return (
       <div id="gallery">
+        <div id="gallery-items">
         { items }
-
+        </div>
       </div>
     );
   }

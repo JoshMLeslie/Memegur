@@ -17,7 +17,7 @@ export default class CommentItem extends React.Component {
   }
 
   handleDelete() {
-    this.props.removeComment(this.props.id); //?
+    this.props.removeComment(this.props.id);
   }
 
   showVoter() {

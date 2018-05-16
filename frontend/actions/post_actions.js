@@ -13,8 +13,9 @@ const receivePost = (payload) => ({
   type: RECEIVE_POST,
   payload
 });
-const removePost = (id) => ({
+const removePost = (payload, id) => ({
     type: REMOVE_POST,
+    payload,
     id
   });
 
@@ -62,7 +63,7 @@ export const updatePost = (post) => dispatch => {
 
 export const deletePost = (id) => dispatch => {
   return PostAPI.deletePost(id).then(
-    () => ( dispatch(removePost(id)) ),
+    (payload) => ( dispatch(removePost(payload, id)) ),
     error => ( dispatch(receiveErrors(error.responseJSON)) )
   );
 };
