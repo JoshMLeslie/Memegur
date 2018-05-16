@@ -1,6 +1,13 @@
 END OF DAY REPORTS
   see ./01_IssueTracking and ./02_ResolvedIssues for further detail
 
+180515:
+  Got voting working!
+  -Displayed on posts and comments!
+  --sweet ass voting hover over buttons on the comments just like the real site.
+  - need to prevent the same user from stuffing the ballot box on votes + maybe render differently afterwards?
+  --definitely need to add model level support for this though.
+
 180514:
 -lets see lets seeee....
 -pages wasn't an issue with the upload, it was that I was null-checking on the render when I should've been using default values => now using default values.

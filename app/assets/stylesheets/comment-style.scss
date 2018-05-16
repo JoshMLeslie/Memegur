@@ -84,10 +84,16 @@
 #side-vote {
   display: block;
   position: absolute;
-  height: 50px;
-  background-color: white;
-  border: 1px solid red;
+  height: 75px;
+  background-color: var(--dark-gray);
   left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  p {
+    width: 5px;
+    margin: 0 auto;
+  }
 }
 
 #hidden-vote {

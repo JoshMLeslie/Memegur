@@ -38,8 +38,8 @@ export default class CommentItem extends React.Component {
 
   render () {
     const commentInfo = this.props.commentInfo;
-    const body = commentInfo.body;
-    const author = this.props.author;
+    const body = commentInfo.body || "";
+    const author = this.props.author || "";
     return (
       <section
         onMouseEnter={this.showVoter}
@@ -48,12 +48,15 @@ export default class CommentItem extends React.Component {
       <div id="comment"
         >
         <div id={this.state.sideVote}>
-          <button onClick={() => this.vote(+1)}>
-            <FaArrowCircleOUp className={"icons-block"} />
-          </button>
-          <button onClick={() => this.vote(-1)}>
-            <FaArrowCircleODown className={"icons-block"} />
-          </button>
+          <div>
+            <button onClick={() => this.vote(+1)}>
+              <FaArrowCircleOUp className={"icons-block"} />
+            </button>
+            <button onClick={() => this.vote(-1)}>
+              <FaArrowCircleODown className={"icons-block"} />
+            </button>
+          </div>
+          <p>{this.props.sumVotes}</p>
         </div>
         <div id="body">
           <label>{author.username}&nbsp;{timeDiff(commentInfo.updated_at)} ago</label>
