@@ -11,7 +11,7 @@ export default class PostBody extends React.Component {
     //   upvotes: 0,
     //   downvotes: 0
     // };
-    // this.vote = this.vote.bind(this);
+    this.vote = this.vote.bind(this);
   }
 
   // vote(type) {
@@ -28,20 +28,28 @@ export default class PostBody extends React.Component {
   //   // submit vote differences
   // }
 
+  vote(vote) {
+    let settings = {
+      type: "posts",
+      type_id: parseInt(this.props.postId),
+      vote
+    };
+    this.props.createVote(settings);
+  }
+
   render () {
-    const info = this.props.info || {};
-    const sum = 0;
+    const sum = this.props.sumVotes;
     return (
       <div id="post-body">
         <div id="post-body-contents">
-        <p>{info.body}</p>
+        <p>{this.props.body}</p>
 
         <div>
           <label>{sum}</label>
-          <button >
+          <button onClick={() => this.vote(+1)}>
             <FaArrowCircleOUp className={"icons-block"} />
           </button>
-          <button >
+          <button onClick={() => this.vote(-1)}>
             <FaArrowCircleODown className={"icons-block"} />
           </button>
         </div>

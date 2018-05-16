@@ -17,6 +17,7 @@
     /gallery/gallery.jsx
       HIGH PRIORITY
         -heroku is throwing some 500-internal server error when I try to upload?
+        -- DB seeding with images needs to manually upload to heroku and use those links.
 
 180515:
   /db/seeds.rb

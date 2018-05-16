@@ -2,10 +2,10 @@ json.set! post.id do
   json.extract! post,
     :id,
     :title,
-    :body,
     :author_id,
     :updated_at,
-    :image_content_type
+    :image_content_type,
+    :body
 
   json.comments_list post.comments.map(&:id)
 

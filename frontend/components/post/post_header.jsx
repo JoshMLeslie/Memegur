@@ -107,7 +107,7 @@ export default class PostHeader extends React.Component{
   }
 
   render () {
-    const currentPost = this.props.currentPost || {};
+    const currentPost = this.props.currentPost;
     const title = currentPost.title || "";
     const author = this.props.author || "";
 

@@ -1,6 +1,13 @@
-#post-comments {
+.post-comments {
   display: flex;
   flex-direction: column;
+
+  section {
+    transform: translateX(-125px);
+    width: 875px;;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
 
   div, fieldset {
     background: var(--dark-gray);
@@ -65,4 +72,24 @@
 #body p {
   max-width: 95%;
   word-break: break-all;
+  position: relative;
+}
+
+#comment {
+  margin-left: auto;
+  width: 750px;
+  box-sizing: border-box;
+}
+
+#side-vote {
+  display: block;
+  position: absolute;
+  height: 50px;
+  background-color: white;
+  border: 1px solid red;
+  left: 10px;
+}
+
+#hidden-vote {
+  display: none;
 }

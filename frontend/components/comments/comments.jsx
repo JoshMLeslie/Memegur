@@ -13,7 +13,7 @@ export default class Comments extends React.Component {
     // unshift comments to show newest first.
 
     return (
-      <div id="post-comments">
+      <div className="post-comments">
         <CommentForm postId={this.props.postId}/>
 
         <div id="comment-counter">

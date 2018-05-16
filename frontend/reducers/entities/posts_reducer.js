@@ -6,7 +6,6 @@ import {
 import {
   RECEIVE_USER
 } from '../../actions/user_actions';
-import { RECEIVE_COMMENT } from '../../actions/comment_actions';
 
 import merge from 'lodash/merge';
 
@@ -17,7 +16,6 @@ const postsReducer = (state = {}, action) => {
     case RECEIVE_POST: case RECEIVE_USER:
       return merge({}, state, action.payload.post);
      // load a post / single user's posts into state
-    case RECEIVE_COMMENT:
     case REMOVE_POST:
       const newState = merge( {}, state );
       delete newState[action.id];

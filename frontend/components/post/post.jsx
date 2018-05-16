@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostHeader from './post_header_container';
-import PostBody from './post_body';
+import PostBody from './post_body_container';
 import Comments from '../comments/comments';
 import isEmpty from 'lodash/isEmpty';
 
@@ -37,7 +37,10 @@ export default class Post extends React.Component{
 
         <img src={this.props.image_url}/>
 
-        <PostBody info={this.props} />
+        <PostBody
+          postId={this.props.postId}
+          currentPost={currentPost}
+          />
 
         <Comments
           postId = {this.props.postId}

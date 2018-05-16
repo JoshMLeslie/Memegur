@@ -1,5 +1,4 @@
 module VoteActions
-
   def render_post(vote)
     if vote.votable_type.include?("Post")
       id = vote.votable_id
@@ -13,7 +12,7 @@ module VoteActions
 
   def create_vote
     vote = Vote.new(
-      vote: params[:spin],
+      vote: params[:vote],
       votable_id: params["#{controller_name.classify.downcase}_id"],
       votable_type: controller_name.classify,
       user_id: current_user.id

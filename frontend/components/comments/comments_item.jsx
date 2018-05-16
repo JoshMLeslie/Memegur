@@ -1,17 +1,39 @@
 import React from 'react';
 import { timeDiff } from '../../util/pure_util';
+import FaArrowCircleOUp from 'react-icons/lib/fa/arrow-circle-o-up';
+import FaArrowCircleODown from 'react-icons/lib/fa/arrow-circle-o-down';
 
 export default class CommentItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      body: ""
+      body: "",
+      sideVote: "hidden-vote"
     };
     this.handleDelete = this.handleDelete.bind(this);
+    this.showVoter = this.showVoter.bind(this);
+    this.hideVoter = this.hideVoter.bind(this);
   }
 
   handleDelete() {
     this.props.removeComment(this.props.id); //?
+  }
+
+  showVoter() {
+    this.setState({sideVote: "side-vote"});
+  }
+
+  hideVoter() {
+    this.setState({sideVote: "hidden-vote"});
+  }
+
+  vote(vote) {
+    let settings = {
+      type: "comments",
+      type_id: parseInt(this.props.id),
+      vote
+    };
+    this.props.createVote(settings);
   }
 
   render () {
@@ -19,14 +41,28 @@ export default class CommentItem extends React.Component {
     const body = commentInfo.body;
     const author = this.props.author;
     return (
-      <div className="comment">
+      <section
+        onMouseEnter={this.showVoter}
+        onMouseLeave={this.hideVoter}
+        >
+      <div id="comment"
+        >
+        <div id={this.state.sideVote}>
+          <button onClick={() => this.vote(+1)}>
+            <FaArrowCircleOUp className={"icons-block"} />
+          </button>
+          <button onClick={() => this.vote(-1)}>
+            <FaArrowCircleODown className={"icons-block"} />
+          </button>
+        </div>
         <div id="body">
           <label>{author.username}&nbsp;{timeDiff(commentInfo.updated_at)} ago</label>
           <p>{body}</p>
-        </div>
 
-        <button onClick={this.handleDelete}>Delete!</button>
+          <button onClick={this.handleDelete}>Delete!</button>
+        </div>
       </div>
+    </section>
     );
   }
 
