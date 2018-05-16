@@ -6,21 +6,9 @@
         LOW PRIORITY
           update to use receive_nnn_errors instead of RECEIVE_SESSION_ERRORS since it doesn't care about it -- requires building out that whole error child(ren)
 
-    /components/comments
-      /comments_item.jsx
-      /comments_item_container.jsx
-        LOW PRIORITY
-          comment delete button isn't working -- currently hitting a server error
-
 180513:
   /frontend/components
     /gallery/gallery.jsx
       HIGH PRIORITY
         -heroku is throwing some 500-internal server error when I try to upload?
         -- DB seeding with images needs to manually upload to heroku and use those links.
-
-180515:
-  /db/seeds.rb
-    MEDIUM PRIORITY
-    -rails db:seed => some crazy jazz about needing to switch production / development environments?
-    -- started happening after trying to seed vote comments.

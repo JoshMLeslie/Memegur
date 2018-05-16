@@ -13,6 +13,7 @@ export default class CommentItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.showVoter = this.showVoter.bind(this);
     this.hideVoter = this.hideVoter.bind(this);
+    this.isAuthor = this.isAuthor.bind(this);
   }
 
   handleDelete() {
@@ -36,6 +37,10 @@ export default class CommentItem extends React.Component {
     this.props.createVote(settings);
   }
 
+  isAuthor () {
+    return (this.props.author.id === this.props.currentUser.id);
+  }
+
   render () {
     const commentInfo = this.props.commentInfo;
     const body = commentInfo.body || "";
@@ -43,29 +48,29 @@ export default class CommentItem extends React.Component {
     return (
       <section
         onMouseEnter={this.showVoter}
-        onMouseLeave={this.hideVoter}
-        >
-      <div id="comment"
-        >
-        <div id={this.state.sideVote}>
-          <div>
-            <button onClick={() => this.vote(+1)}>
-              <FaArrowCircleOUp className={"icons-block"} />
-            </button>
-            <button onClick={() => this.vote(-1)}>
-              <FaArrowCircleODown className={"icons-block"} />
-            </button>
-          </div>
-          <p>{this.props.sumVotes}</p>
-        </div>
-        <div id="body">
-          <label>{author.username}&nbsp;{timeDiff(commentInfo.updated_at)} ago</label>
-          <p>{body}</p>
+        onMouseLeave={this.hideVoter} >
 
-          <button onClick={this.handleDelete}>Delete!</button>
+        <div id="comment">
+          <div id={this.state.sideVote}>
+            <div>
+              <button onClick={() => this.vote(+1)}>
+                <FaArrowCircleOUp className={"icons-block"} />
+              </button>
+              <button onClick={() => this.vote(-1)}>
+                <FaArrowCircleODown className={"icons-block"} />
+              </button>
+            </div>
+            <p>{this.props.sumVotes}</p>
+          </div>
+
+          <div id="body">
+            <label>{author.username}&nbsp;{timeDiff(commentInfo.updated_at)} ago</label>
+            <p>{body}</p>
+
+            <button className={this.isAuthor() ? "" : "hidden"} onClick={this.handleDelete}>Delete!</button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     );
   }
 

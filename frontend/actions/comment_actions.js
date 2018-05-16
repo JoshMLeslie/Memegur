@@ -9,8 +9,9 @@ const receivePost = (payload) => ({
   payload
 });
 
-const removeComment = (id) => ({
+const removeComment = (payload, id) => ({
     type: REMOVE_COMMENT,
+    payload,
     id
   });
 
@@ -43,9 +44,9 @@ export const updateComment = comment => dispatch => {
 };
 export const deleteComment = id => dispatch => {
   return CommentAPI.deleteComment(id).then(
-    () => {
+    (payload) => {
       return (
-        dispatch(removeComment(id))
+        dispatch(removeComment(payload, id))
       );
     }
   );

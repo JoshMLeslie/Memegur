@@ -19,7 +19,9 @@ export default class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const body = merge({},this.state);
-    this.props.createComment(this.props.postId, body);
+    this.props.createComment(this.props.postId, body).then(
+      () => this.setState({body: ""})
+    );
   }
 
   render () {

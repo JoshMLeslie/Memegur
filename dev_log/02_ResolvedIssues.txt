@@ -26,5 +26,20 @@ RESOLVED 180514
   /frontend/components
     /gallery/gallery.jsx
       ISSUE 180513:
-        Switching between pages (going into a post, clicking the logo to go back to '/' and going to a new post) breaks esp. on posts made through upload (vs. seed). Don't even know what's up with that. Begin by looking at the upload form I guess and see if there's something weird going on with the uploads in the db.
         -Friends don't let friends null check in renders. Use default values instead.
+        Switching between pages (going into a post, clicking the logo to go back to '/' and going to a new post) breaks esp. on posts made through upload (vs. seed). Don't even know what's up with that. Begin by looking at the upload form I guess and see if there's something weird going on with the uploads in the db.
+
+
+  /db/seeds.rb
+    ISSUE 180515:
+    -resolved itself? Uhhhh. I think I cleared out the votes in the db then reseeded
+      -rails db:seed => some crazy jazz about needing to switch production / development environments?
+      -- started happening after trying to seed vote comments.
+
+RESOLVED 180516
+  /components/comments
+    /comments_item.jsx
+    /comments_item_container.jsx
+        ISSUE 180511
+        -was a few things. Delete wasn't returning properly from the model, comment reducer was set up properly but post reducer was also holding onto state instead of updating so I had to explicitly filter out the old comment id from commentsList
+          -comment delete button isn't working -- currently hitting a server error

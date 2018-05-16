@@ -7,26 +7,8 @@ export default class PostBody extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   upvotes: 0,
-    //   downvotes: 0
-    // };
-    this.vote = this.vote.bind(this);
   }
 
-  // vote(type) {
-  //   this.setState({
-  //     [type]: (type === "upvotes" ?
-  //       (this.state[type]+1 ) :
-  //       (this.state[type]-1 )
-  //     )
-  //   });
-  //   console.log(this.state);
-  // }
-  //
-  // componentWillUnmount () {
-  //   // submit vote differences
-  // }
 
   vote(vote) {
     let settings = {

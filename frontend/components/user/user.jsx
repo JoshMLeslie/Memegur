@@ -10,7 +10,7 @@ export default class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedEntity: 1, // user info is on 0
+      selectedEntity: 0,
       bio: ""
     };
 
@@ -45,12 +45,19 @@ export default class User extends React.Component {
       if (typeof newEntity !== "object") continue;
 
       let gallery = newEntity.post_id || key;
+      let username = "";
+
+      if (this.props.user.id === this.props.currentUser.id) {
+        username = "you";
+      } else {
+        username = this.props.user.username;
+      }
 
       newEntities.unshift(
         // technically this ordering is suspect since it's coming from an object thru for..in => could pre-sort by date?
         <Link key={key} to={`/gallery/${gallery}`}>
           <div>
-            <label>You, &nbsp;{timeDiff(newEntity.updated_at)} ago</label>
+            <label>By {username}, &nbsp;{timeDiff(newEntity.updated_at)} ago</label>
             {entity.title === 'comments' ?
               <p>{newEntity.body}</p> :
               <img src={newEntity.image_url} />

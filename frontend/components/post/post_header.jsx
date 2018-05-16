@@ -1,6 +1,7 @@
 import React from 'react';
 import { timeDiff } from '../../util/pure_util';
 import { Link } from 'react-router-dom';
+import isEmpty from 'lodash/isEmpty';
 
 export default class PostHeader extends React.Component{
   constructor(props) {
@@ -27,12 +28,14 @@ export default class PostHeader extends React.Component{
     // need to add a limiting factor otherwise you can go to unmade posts.
     // not perfect but works for now => you still hit a null page once.
     // you hit a 404 before anything else => ?
+
+    // session slice to keep track of most recent post
     let change;
-    if (post) {
+    if ( isEmpty(post) ) {
+      change = '/';
+    } else {
       let temp = post.id + (spin === "next" ? 1 : -1);
       change = `/gallery/${temp}`;
-    } else {
-      change = '/';
     }
 
     this.props.history.push(change);

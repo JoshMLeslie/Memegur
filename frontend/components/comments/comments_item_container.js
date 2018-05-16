@@ -7,7 +7,9 @@ import isEmpty from 'lodash/isEmpty';
 
 
 const mapStateToProps = (state, ownProps) => {
+  const currentUser = state.entities.users[state.session.id] || {};
   const commentInfo = state.entities.comments[ownProps.id];
+  const author = state.entities.users[commentInfo.author_id] || {};
 
   let sumVotes = 0;
 
@@ -23,11 +25,11 @@ const mapStateToProps = (state, ownProps) => {
     }
   }
 
-
   return ({
-    sumVotes,
+    currentUser,
     commentInfo,
-    author: state.entities.users[commentInfo.author_id]
+    sumVotes,
+    author
   });
 };
 

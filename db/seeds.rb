@@ -36,25 +36,29 @@ oppBob = User.create(
 bobP = Post.create(
   title: "postBob",
   body: "What is in a postBob anyways?",
-  author_id: bob.id
+  author_id: bob.id,
+  image_content_type: "image/jpeg"
 )
 
 bobP2 = Post.create(
   title: "postBob",
   body: "What is in a postBob anyways?",
-  author_id: bob.id
+  author_id: bob.id,
+  image_content_type: "image/jpeg"
 )
 
 bobP3 = Post.create(
   title: "postBob",
   body: "What is in a postBob anyways?",
-  author_id: oneBob.id
+  author_id: oneBob.id,
+  image_content_type: "image/jpeg"
 )
 
 bobP4 = Post.create(
   title: "postBob",
   body: "What is in a postBob anyways?",
-  author_id: oppBob.id
+  author_id: oppBob.id,
+  image_content_type: "image/jpeg"
 )
 
 

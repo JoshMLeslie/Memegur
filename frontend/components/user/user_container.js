@@ -5,6 +5,7 @@ import User from './user';
 import merge from 'lodash/merge';
 
 const getEnts = (userId, checkEnts) => {
+
   let ents = {};
 
   for (var key in checkEnts) {
@@ -17,6 +18,7 @@ const getEnts = (userId, checkEnts) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
+  const currentUser = state.entities.users[state.session.id] || {};
   const userId = ownProps.match.params.id;
 
   let user = {title: "user"};
@@ -30,12 +32,13 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   const entities = [
-    user,
     comments,
     posts,
   ] || [];
 
   return ({
+    user,
+    currentUser,
     userId,
     entities
   });

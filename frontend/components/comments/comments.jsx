@@ -4,6 +4,18 @@ import CommentForm from './comments_form_container';
 
 export default class Comments extends React.Component {
 
+  lengthString () {
+    const list = this.props.commentsList || [];
+    const long = list.length;
+
+    if (long > 0) {
+      const anS = (long > 1 ? "s" : "");
+      return (`${long} Comment${anS}`);
+    } else if (long === 0) {
+      return "0 Comments";
+    }
+  }
+
   render () {
     const comments = [];
     const commentsList = this.props.commentsList || [];
@@ -12,13 +24,14 @@ export default class Comments extends React.Component {
     ));
     // unshift comments to show newest first.
 
+
     return (
       <div className="post-comments">
         <CommentForm postId={this.props.postId}/>
 
         <div id="comment-counter">
           <p>
-            {commentsList.length} Comments
+            {this.lengthString.bind(this)()}
           </p>
         </div>
 

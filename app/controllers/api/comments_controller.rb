@@ -22,9 +22,11 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     # a comment will have a delete button which pulls the id for itself (params[:id] ? )
-    @comment = current_user.comments.find(params[:id])
-    @comment.destroy
-    render "api/posts/#{@comment.post_id}"
+    comment = current_user.comments.find(params[:id])
+    comment.destroy
+
+    @post = comment.post
+    render "api/posts/show"
   end
 
   def comment_params

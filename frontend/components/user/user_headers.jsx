@@ -1,18 +1,11 @@
 import React from 'react';
 
 export default class HeaderEntity extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.makeEntities = this.makeEntities.bind(this);
-  }
-
 
   makeEntities () {
     let selected = this.props.selectedEntity;
 
     return this.props.entities.map( (entity, index) => {
-      if (entity.title === "user") return; // skip
 
       let title = entity.title;
       let klass = '';
@@ -33,11 +26,10 @@ export default class HeaderEntity extends React.Component {
 
 
   render () {
-    const entities = this.makeEntities();
-    
+
     return (
       <ul>
-        {entities}
+        {this.makeEntities.bind(this)()}
       </ul>
     );
   }

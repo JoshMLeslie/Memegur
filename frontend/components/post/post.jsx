@@ -14,6 +14,7 @@ export default class Post extends React.Component{
   }
 
   componentDidUpdate(prevProps, prevState){
+    debugger
     const postId = this.props.postId;
 
     if (postId !== prevProps.match.params.id) {
