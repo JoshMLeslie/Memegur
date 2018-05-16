@@ -1,7 +1,5 @@
 class Api::SessionsController < ApplicationController
 
-  before_action :require_login, except: [:new, :create]
-
   def create
     error = {json: ["Invalid username/password combination"], status: 401}
     username = params[:user][:username]
