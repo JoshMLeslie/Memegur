@@ -13,9 +13,10 @@ html {
   background: var(--bg);
 }
 
-#root {
+#modules {
   width: 1000px;
   margin: 0 auto;
+  margin-top: 75px;
 }
 
 .button-link {
@@ -62,4 +63,9 @@ html {
 
 .hidden {
   display: none;
+}
+
+.flexed {
+  display: flex;
+  justify-content: space-between;
 }

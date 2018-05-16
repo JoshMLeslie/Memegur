@@ -1,15 +1,21 @@
+#header-holder {
+  background: var(--dark-gray);
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 #header {
   display: flex;
   justify-content: space-between;
-  background: var(--dark-gray);
   padding: 1%;
   height: 60px;
   box-sizing: border-box;
   width: 1000px;
-  position: fixed;
-  top: 0;
+
   margin: 0 auto;
-  z-index: 9;
+
 
   a, button {
     text-decoration: none;
@@ -60,9 +66,6 @@
 }
 
 #header-session-links {
-  position: absolute;
-  top: 35%;
-  right: 1%;
 
   a, button{
     color: white;

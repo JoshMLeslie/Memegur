@@ -13,13 +13,16 @@ import Modal from './modal/modal_container';
 const App = () => {
   return (
     <div>
-      <Modal />
       <Header />
-      <ShowSession />
-      <Route exact path="/" component={Gallery} />
-      <Route exact path="/gallery" component={Gallery} />
-      <Route path="/gallery/:id" component={Post} />
-      <Route path="/users/:id" component={User} />
+
+      <div id="modules">
+        <Modal />
+        <ShowSession />
+        <Route exact path="/" component={Gallery} />
+        <Route exact path="/gallery" component={Gallery} />
+        <Route path="/gallery/:id" component={Post} />
+        <Route path="/users/:id" component={User} />
+      </div>
     </div>
   );
 };

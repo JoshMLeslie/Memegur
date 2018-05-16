@@ -7,6 +7,7 @@ import isEmpty from 'lodash/isEmpty';
 
 
 const mapStateToProps = (state, ownProps) => {
+  const currentUser = state.entities.users[state.session.id] || {};
   let currentPost = ownProps.currentPost;
   let body = "";
   let sumVotes = 0;
@@ -26,13 +27,16 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return ({
-    currentPost, body, sumVotes
+    currentUser,
+    currentPost,
+    sumVotes,
+    body,
   });
 };
 
 const mapDispatchToProps = dispatch => ({
   createVote: (settings) => dispatch(createVote(settings) ),
-  removePost: (settings) => dispatch(deletePost(settings) )
+  deletePost: (id) => dispatch(deletePost(id) )
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostBody));
