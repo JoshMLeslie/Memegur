@@ -61,26 +61,39 @@ export default class UploadModal extends React.Component {
   }
 
   render () {
-
     return (
       <div id="upload-modal">
         <label>Upload a post!</label>
 
-        <label>Title</label>
-          <input type="text" onChange={this.update("title")} />
+          <input
+            maxLength={140}
+            placeholder={"title"}
+            type="text"
+            onChange={this.update("title")} />
 
-        <label>Body</label>
-          <textarea onChange={this.update("body")} />
+          <textarea
+            maxLength={255}
+            placeholder={"body"}
+            onChange={this.update("body")} />
 
         <input type="file" onChange={this.updateFile} />
-        or
+        <label>or</label>
         <input
           placeholder={"url"}
           type="text"
           onChange={this.update("url")} />
 
-        <button onClick={this.handleSubmit}> Make post! </button>
-        <img src={this.state.imageUrl} />
+        <button
+          disabled={
+            (this.state.url.length === 0 ^
+            this.state.imageFile === null) === 0
+          }
+          onClick={this.handleSubmit}> Make post!
+        </button>
+
+        <img
+          className={this.state.imageUrl ? "" : "hidden"}
+          src={this.state.imageUrl} />
       </div>
     );
   }

@@ -36,7 +36,7 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:body,:title,:image)
+    params.require(:post).permit(:body, :title, image: [:image_file_name, :image_file_size, :image_content_type, :image_updated_at])
   end
 
 end

@@ -20,7 +20,7 @@ class Post < ApplicationRecord
     foreign_key: :author_id
 
   attr_accessor :image_remote_url
-  attr_accessor :image_file_name
+  # attr_accessor :image_file_name
 
   def image_remote_url=(url_value)
     self.image = URI.parse(url_value)

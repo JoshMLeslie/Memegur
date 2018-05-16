@@ -4,8 +4,8 @@ json.set! post.id do
     :title,
     :author_id,
     :updated_at,
-    :body
-    :image_content_type,
+    :body,
+    :image_content_type
 
   json.comments_list post.comments.map(&:id)
 
