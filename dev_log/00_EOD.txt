@@ -1,6 +1,14 @@
 END OF DAY REPORTS
   see ./01_IssueTracking and ./02_ResolvedIssues for further detail
 
+180517:
+  -Done enough for lite-production
+  -Built a big seed file
+  --giphy is a mess so I didn't use it. Found loremflickr instead :+1:
+  -Smoothed site navigation (between posts and redirecting and user login/signup)
+  -Polished css styling
+  -working heroku model
+
 180516:
   -lots of css styling today! Looking slick.
   --color adjustments
