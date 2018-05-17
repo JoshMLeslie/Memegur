@@ -130,7 +130,7 @@ end
 
 puts "votes halfway done"
 
-500.times do
+500.times do |i|
   puts "votes 3/4 done" if i == 250
   vote = odds.sample
 
