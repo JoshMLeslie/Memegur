@@ -1,3 +1,5 @@
+require 'faker'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -14,84 +16,133 @@ Comment.destroy_all
 
 bob = User.try(:create, {username: "Bob", password: "bobobob", bio: "Who is Bob anyways?"})
 
+
 lurkerBob = User.create(
   username: "lurkerBob",
   password: "bobobob",
   bio: "I am lurkerBob"
 )
 
-oneBob = User.create(
-  username: "oneBob",
-  password: "bobobob",
-  bio: "I am oneBob"
-)
+# USERS #
+10.times do |i|
+  User.create(
+    username: Faker::BackToTheFuture.character,
+    password: Faker::WorldOfWarcraft.quote.slice(0,10).gsub(/\s+/, ""),
+    bio: Faker::BackToTheFuture.quote.slice(0,140)
+  )
+end
 
-oppBob = User.create(
-  username: "oppBob",
-  password: "bobobob",
-  bio: "I am oppBob"
-)
+25.times do |i|
+  User.create(
+    username: Faker::HitchhikersGuideToTheGalaxy.character,
+    password: Faker::WorldOfWarcraft.quote.slice(0,10).gsub(/\s+/, ""),
+    bio:  Faker::HitchhikersGuideToTheGalaxy.marvin_quote
+  )
+end
 
+puts "users just over half-way"
 
-bobP = Post.create(
-  title: "postBob",
-  body: "What is in a postBob anyways?",
-  author_id: bob.id,
-  image_content_type: "image/jpeg"
-)
+25.times do |i|
+  User.create(
+    username: Faker::Dune.character,
+    password: Faker::WorldOfWarcraft.quote.slice(0,10).gsub(/\s+/, ""),
+    bio:  Faker::Dune.quote.slice(0,140)
+  )
+end
 
-bobP2 = Post.create(
-  title: "postBob",
-  body: "What is in a postBob anyways?",
-  author_id: bob.id,
-  image_content_type: "image/jpeg"
-)
-
-bobP3 = Post.create(
-  title: "postBob",
-  body: "What is in a postBob anyways?",
-  author_id: oneBob.id,
-  image_content_type: "image/jpeg"
-)
-
-bobP4 = Post.create(
-  title: "postBob",
-  body: "What is in a postBob anyways?",
-  author_id: oppBob.id,
-  image_content_type: "image/jpeg"
-)
+users = User.all
+puts "users done"
+### ###
 
 
-bobC = Comment.create(
-  body: "What is in a commentBob anyways?",
-  author_id: oppBob.id,
-  post_id: bobP.id
-)
+# POSTS #
+100.times do |i|
+  puts "posts halfway" if i == 50
 
-bobC2 = Comment.create(
-  body: "What is in a commentBob anyways?",
-  author_id: oppBob.id,
-  post_id: bobP2.id
-)
+  keyword = %w(billmurray dogs cats starwars calvinandhobbes tigers woodworking disney magic fantasy scifi doctorwho avengers).sample
+  Post.create(
+    title: "Is this #{keyword}?",
+    body: "What is #{keyword} anyways?",
+    author_id: users.sample.id,
+    image: URI.parse("https://loremflickr.com/320/240/#{keyword}")
+  )
+end
 
-bobC3 = Comment.create(
-  body: "What is in a commentBob anyways?",
-  author_id: oneBob.id,
-  post_id: bobP.id
-)
+posts = Post.all
+puts "posts done"
+### ###
 
-bobC4 = Comment.create(
-  body: "What is in a commentBob anyways?",
-  author_id: bob.id,
-  post_id: bobP.id
-)
+# COMMENTS #
+50.times do
+  Comment.create(
+    body: Faker::Dune.quote.slice(0,140),
+    author_id: users.sample.id,
+    post_id: posts.sample.id
+  )
+end
+50.times do
+  Comment.create(
+    body: Faker::HowIMetYourMother.quote.slice(0,140),
+    author_id: users.sample.id,
+    post_id: posts.sample.id
+  )
+end
+50.times do
+  Comment.create(
+    body: Faker::Simpsons.quote.slice(0,140),
+    author_id: users.sample.id,
+    post_id: posts.sample.id
+  )
+end
+puts "comments half-way"
+50.times do
+  Comment.create(
+    body: "What is in a commentBob anyways?",
+    author_id: users.sample.id,
+    post_id: posts.sample.id
+  )
+end
+50.times do
+  Comment.create(
+    body: Faker::TheFreshPrinceOfBelAir.quote.slice(0,140),
+    author_id: users.sample.id,
+    post_id: posts.sample.id
+  )
+end
 
-bobP.votes.create({vote: 1, user_id: lurkerBob.id})
-bobP2.votes.create({vote: 1, user_id: lurkerBob.id})
-bobP2.votes.create({vote: 1, user_id: oppBob.id})
-bobP3.votes.create({vote: -1, user_id: oppBob.id})
+comments = Comment.all
+puts "comments done"
 
-bobC.votes.create({vote: 1, user_id: lurkerBob.id})
-bobC2.votes.create({vote: 1, user_id: lurkerBob.id})
-bobC2.votes.create({vote: 1, user_id: oppBob.id})
-bobC3.votes.create({vote: -1, user_id: oppBob.id})
+# VOTES #
+odds = [1, 1, 1, -1, -1]
+150.times do
+  vote = odds.sample
+
+  posts.sample.votes.create({
+    vote: vote,
+    user_id: users.sample
+    })
+
+  comments.sample.votes.create({
+    vote: vote,
+    user_id: lurkerBob.id
+    })
+end
+puts "votes halfway done"
+150.times do
+  vote = odds.sample
+
+  posts.sample.votes.create({
+    vote: vote,
+    user_id: users.sample
+    })
+
+  comments.sample.votes.create({
+    vote: vote,
+    user_id: lurkerBob.id
+    })
+end
+puts "votes done"
+### ###
+
+puts "seeding complete!"
