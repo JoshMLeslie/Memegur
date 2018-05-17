@@ -6,6 +6,7 @@ import Post from './post/post_container';
 import User from './user/user_container';
 import Gallery from './gallery/gallery_container';
 import Modal from './modal/modal_container';
+import FourOhFour from './error_pages/fourohfour';
 
 // import StickyHeader from './header/sticky_header';
 // <StickyHeader />
@@ -18,6 +19,8 @@ const App = () => {
       <div id="modules">
         <Modal />
         <ShowSession />
+        <Route exact path="/404" component={FourOhFour} />
+
         <Route exact path="/" component={Gallery} />
         <Route exact path="/gallery" component={Gallery} />
         <Route path="/gallery/:id" component={Post} />

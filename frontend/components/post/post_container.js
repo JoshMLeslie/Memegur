@@ -21,13 +21,13 @@ const mapStateToProps = (state, ownProps) => {
     commentsList = currentPost.comments_list;
   }
 
-  return ({
+  return {
     postId,
     currentPost,
     author,
     image_url,
-    commentsList
-  });
+    commentsList,
+  };
 };
 
 const mapDispatchToProps = dispatch => ({

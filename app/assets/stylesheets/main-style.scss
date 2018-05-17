@@ -16,6 +16,11 @@ html * {
   font-family: 'PT Sans', sans-serif;
 }
 
+pre {
+  font-family: monospace;
+  white-space: pre;
+}
+
 #modules {
   width: 1000px;
   margin: 0 auto;

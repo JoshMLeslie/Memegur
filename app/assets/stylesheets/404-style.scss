@@ -1,0 +1,17 @@
+
+.fourohfour{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding-top: 20px;
+  background-color: var(--light-blue);
+  margin: 0 auto;
+  align-items: center;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 1px 1px 75px var(--dark-blue);
+  &:hover {
+    background-color: var(--mid-blue);
+  }
+}

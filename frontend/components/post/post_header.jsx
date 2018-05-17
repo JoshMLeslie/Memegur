@@ -24,18 +24,28 @@ export default class PostHeader extends React.Component{
   }
 
   changePage(spin) {
-    const post = this.props.currentPost;
-    // need to add a limiting factor otherwise you can go to unmade posts.
-    // not perfect but works for now => you still hit a null page once.
-    // you hit a 404 before anything else => ?
-
-    // session slice to keep track of most recent post
+    // session slice to keep track of highest post + loaded posts
     let change;
-    if ( isEmpty(post) ) {
+    if ( isEmpty(this.props.currentPost) ) {
       change = '/';
     } else {
-      let temp = post.id + (spin === "next" ? -1 : 1);
-      change = `/gallery/${temp}`;
+      const postList = this.props.postList; // ids => [], topId => int
+      const currentId = this.props.currentPost.id;
+      const currentIndex = this.props.postList.ids.indexOf(currentId);
+      let nextPostIndex = currentIndex + spin; // spin from input
+
+      if (nextPostIndex >= postList.ids.length) {
+        nextPostIndex = 0;
+      } else if (nextPostIndex < 0 ) {
+        nextPostIndex = postList.ids.length - 1;
+      }
+
+      const nextPost = postList.ids[nextPostIndex];
+      if (nextPost === 0) {
+        change = "/404";
+      } else {
+        change = `/gallery/${nextPost}`;
+      }
     }
 
     this.props.history.push(change);
@@ -47,9 +57,9 @@ export default class PostHeader extends React.Component{
 
   keyPress(e) {
     if (e.keyCode === 37 && this.state.secret.length === 0) {
-        this.changePage("prev");
+        this.changePage(-1);
     } else if (e.keyCode === 39 && this.state.secret.length === 0) {
-        this.changePage("next");
+        this.changePage(1);
     } else {
       const pusher = (i) => this.state.secret.push(i);
       const long = (i) => this.state.secret.length === i;
