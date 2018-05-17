@@ -1,6 +1,18 @@
 END OF DAY REPORTS
   see ./01_IssueTracking and ./02_ResolvedIssues for further detail
 
+180516:
+  -lots of css styling today! Looking slick.
+  --color adjustments
+  --reorganized parent/child relationships for layout
+  --adjusted ids to classes due to hierarchy collisions, etc. etc.
+  -added post+comment delete functionality bound their own users
+  -got votes working 90% so that a user can only cast a vote one way or the other, once, for any given item. The trouble is though they can't undo it and do the opposite =>
+    ([0] => +1 => [+1] => -1 => [0], -1 =x [0] )
+  -got heroku working (fingers crossed it stays working when I push this one)
+  -upload modal only accepts a URL or Image upload now, button disables if you try and do both
+  -doing faker gem with giphy API (using the imgur api would feel too heavy handed) tomorrow to populate more and hope everything doesn't break when I load it up (thinking around 50 posts).
+
 180515:
   Got voting working!
   -Displayed on posts and comments!

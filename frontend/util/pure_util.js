@@ -1,3 +1,5 @@
+import merge from 'lodash/merge';
+
 export const precisionRound = (number, precision = 0) => {
   // precisionRound(1.005, 2) //=> 1.01
 
@@ -52,4 +54,37 @@ export const timeDiff = (updateAt) => {
   const timeStr = `${diff} ${annote}`;
 
   return timeStr;
+};
+
+// \\ insert() // \\
+export const insert = (element, array) => {
+  // https://stackoverflow.com/questions/1344500/efficient-way-to-insert-a-number-into-a-sorted-array-of-numbers
+
+  let newArray = merge([],array);
+  let loc = locationOf(element, newArray, spaceship);
+  newArray.splice( loc + 1, 0, element);
+  return newArray;
+};
+
+const spaceship = (a,b) => {
+  if (a < b) { return -1; }
+  else if (a === b) { return  0; }
+  else if (a > b) { return  1; }
+};
+
+const locationOf = (element, array, comparer, start, end) => {
+    if (array.length === 0) return -1;
+
+    start = start || 0;
+    end = end || array.length;
+    let pivot = (start + end) >> 1;  // should be faster than dividing by 2
+
+    let c = comparer(element, array[pivot]);
+    if (end - start <= 1) return c == -1 ? pivot - 1 : pivot;
+
+    switch (c) {
+        case -1: return locationOf(element, array, comparer, start, pivot);
+        case 0: return pivot;
+        case 1: return locationOf(element, array, comparer, pivot, end);
+    }
 };

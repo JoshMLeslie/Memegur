@@ -18,7 +18,7 @@ const getEnts = (userId, checkEnts) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const currentUser = state.entities.users[state.session.id] || {};
+  const currentUser = state.entities.users[state.session.currentUser.id] || {};
   const userId = ownProps.match.params.id;
 
   let user = {title: "user"};

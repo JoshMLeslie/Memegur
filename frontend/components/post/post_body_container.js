@@ -7,7 +7,7 @@ import isEmpty from 'lodash/isEmpty';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const currentUser = state.entities.users[state.session.id] || {};
+  const currentUser = state.entities.users[state.session.currentUser.id] || {};
   let currentPost = ownProps.currentPost;
   let body = "";
   let sumVotes = 0;

@@ -7,7 +7,7 @@ import isEmpty from 'lodash/isEmpty';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const currentUser = state.entities.users[state.session.id] || {};
+  const currentUser = state.entities.users[state.session.currentUser.id] || {};
   const commentInfo = state.entities.comments[ownProps.id];
   const author = state.entities.users[commentInfo.author_id] || {};
 

@@ -4,7 +4,7 @@ import CommentForm from './comments_form';
 // this is a comment form container
 
 const mapStateToProps = (state, ownProps) => {
-  const currentUser = state.session.id;
+  const currentUser = state.session.currentUser.id;
   const text = ownProps.body || "";
   return ({
     text,

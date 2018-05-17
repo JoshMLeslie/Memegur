@@ -12,6 +12,9 @@ html {
   /* actual attributes */
   background: var(--bg);
 }
+html * {
+  font-family: 'PT Sans', sans-serif;
+}
 
 #modules {
   width: 1000px;

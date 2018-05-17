@@ -20,11 +20,13 @@ export default class CommentItem extends React.Component {
     this.props.removeComment(this.props.id);
   }
 
-  showVoter() {
+  hideVoter() { // FLIPPED FOR EDITING
+    // showVoter => 'side-vote'
     this.setState({sideVote: "side-vote"});
   }
 
-  hideVoter() {
+  showVoter() { // FLIPPED FOR EDITING
+    // hideVoter => 'hidden-vote'
     this.setState({sideVote: "hidden-vote"});
   }
 

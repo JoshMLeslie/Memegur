@@ -35,7 +35,9 @@ export default class Post extends React.Component{
           currentPost={currentPost}
           author={this.props.author} />
 
-        <img src={this.props.image_url}/>
+        <div id="image-container">
+          <img src={this.props.image_url}/>
+        </div>
 
         <PostBody
           postId={this.props.postId}

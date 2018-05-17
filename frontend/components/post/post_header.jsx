@@ -34,7 +34,7 @@ export default class PostHeader extends React.Component{
     if ( isEmpty(post) ) {
       change = '/';
     } else {
-      let temp = post.id + (spin === "next" ? 1 : -1);
+      let temp = post.id + (spin === "next" ? -1 : 1);
       change = `/gallery/${temp}`;
     }
 

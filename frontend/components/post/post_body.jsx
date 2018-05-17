@@ -11,17 +11,17 @@ export default class PostBody extends React.Component {
     this.lengthString = this.lengthString.bind(this);
   }
 
-  handleDelete() { // somewhat duplicated w/ comments
+  handleDelete() {
     this.props.deletePost(this.props.postId).then(
       this.props.history.push(`/`)
     );
   }
 
-  isAuthor () { // duplicated w/ comments
+  isAuthor () {
     return (this.props.currentPost.author_id === this.props.currentUser.id);
   }
 
-  vote(vote) { // duplicated w/ comments
+  vote(vote) {
     let settings = {
       type: "posts",
       type_id: parseInt(this.props.postId),
@@ -30,13 +30,13 @@ export default class PostBody extends React.Component {
     this.props.createVote(settings);
   }
 
-  lengthString () { // somewhat duplicated w/ comments
+  lengthString () {
     const long = this.props.sumVotes;
 
-    if (long > 0) {
-      const anS = (long > 1 ? "s" : "");
+    if (long !== 0) {
+      const anS = (long > 1 || long < -1 ? "s" : "");
       return (`${long} Vote${anS}`);
-    } else if (long === 0) {
+    } else {
       return "0 Votes";
     }
   }
