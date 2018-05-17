@@ -84,19 +84,24 @@ export default class User extends React.Component {
 
     return (
       <div id="user-page">
-        <div
-          id="displayed-entity"
-          className={entity.title === "posts" ? "user-gallery-image" : ""}>
-          {selected}
-        </div>
-        <div id="header-entity">
-          <HeaderEntity
-            selectEntity={this.selectEntity}
-            selectedEntity={this.state.selectedEntity}
-            onEntityChosen={this.selectEntity}
-            entities={this.props.entities}
-            >
-          </HeaderEntity>
+          <div
+            id="displayed-entity"
+            className={entity.title === "posts" ? "user-gallery-image" : ""}>
+            {selected}
+          </div>
+          <div className="user-side-bar">
+            <p>
+              <strong>User Bio:</strong> {this.props.user.bio}
+            </p>
+          <div id="header-entity">
+            <HeaderEntity
+              selectEntity={this.selectEntity}
+              selectedEntity={this.state.selectedEntity}
+              onEntityChosen={this.selectEntity}
+              entities={this.props.entities}
+              >
+            </HeaderEntity>
+          </div>
         </div>
 
       </div>

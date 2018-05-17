@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { timeDiff } from '../../util/pure_util';
 import FaArrowCircleOUp from 'react-icons/lib/fa/arrow-circle-o-up';
 import FaArrowCircleODown from 'react-icons/lib/fa/arrow-circle-o-down';
@@ -20,12 +21,12 @@ export default class CommentItem extends React.Component {
     this.props.removeComment(this.props.id);
   }
 
-  hideVoter() { // FLIPPED FOR EDITING
+  showVoter() {
     // showVoter => 'side-vote'
     this.setState({sideVote: "side-vote"});
   }
 
-  showVoter() { // FLIPPED FOR EDITING
+  hideVoter() {
     // hideVoter => 'hidden-vote'
     this.setState({sideVote: "hidden-vote"});
   }
@@ -66,7 +67,9 @@ export default class CommentItem extends React.Component {
           </div>
 
           <div id="body">
-            <label>{author.username}&nbsp;{timeDiff(commentInfo.updated_at)} ago</label>
+            <label>
+              <Link to={`/users/${author.id}`}> {author.username}</Link>
+              &nbsp;{timeDiff(commentInfo.updated_at)} ago</label>
             <p>{body}</p>
 
             <button className={this.isAuthor() ? "delete-btn" : "hidden"} onClick={this.handleDelete}>Delete!</button>

@@ -21,14 +21,14 @@ const mapStateToProps = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.currentUser.id] || {};
   const userId = ownProps.match.params.id;
 
-  let user = {title: "user"};
+  let user = {};
   let comments = {title: "comments"};
   let posts = {title: "posts"};
 
   if (userId) { // make fresh copies just in case?
-    user = merge( {}, user, state.entities.users[userId] );
-    comments = merge( {}, comments, getEnts(userId, state.entities.comments) );
-    posts = merge( {}, posts, getEnts(userId, state.entities.posts) );
+    user = merge( user, state.entities.users[userId] );
+    comments = merge( comments, getEnts(userId, state.entities.comments) );
+    posts = merge( posts, getEnts(userId, state.entities.posts) );
   }
 
   const entities = [

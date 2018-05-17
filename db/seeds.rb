@@ -32,7 +32,7 @@ lurkerBob = User.create(
   )
 end
 
-25.times do |i|
+15.times do |i|
   User.create(
     username: Faker::HitchhikersGuideToTheGalaxy.character,
     password: Faker::WorldOfWarcraft.quote.slice(0,10).gsub(/\s+/, ""),
@@ -56,6 +56,7 @@ puts "users done"
 
 
 # POSTS #
+puts "posts starting: longest part due to fetching, about 3 minutes"
 100.times do |i|
   puts "posts halfway" if i == 50
 
@@ -97,7 +98,7 @@ end
 puts "comments half-way"
 50.times do
   Comment.create(
-    body: "What is in a commentBob anyways?",
+    body: Faker::VForVendetta.quote.slice(0,140),
     author_id: users.sample.id,
     post_id: posts.sample.id
   )
@@ -115,7 +116,9 @@ puts "comments done"
 
 # VOTES #
 odds = [1, 1, 1, -1, -1]
-150.times do
+500.times do |i|
+  puts "votes 1/4 done" if i == 250
+
   vote = odds.sample
 
   posts.sample.votes.create({
@@ -123,19 +126,13 @@ odds = [1, 1, 1, -1, -1]
     user_id: users.sample
     })
 
-  comments.sample.votes.create({
-    vote: vote,
-    user_id: lurkerBob.id
-    })
 end
-puts "votes halfway done"
-150.times do
-  vote = odds.sample
 
-  posts.sample.votes.create({
-    vote: vote,
-    user_id: users.sample
-    })
+puts "votes halfway done"
+
+500.times do
+  puts "votes 3/4 done" if i == 250
+  vote = odds.sample
 
   comments.sample.votes.create({
     vote: vote,
@@ -145,4 +142,4 @@ end
 puts "votes done"
 ### ###
 
-puts "seeding complete!"
+puts "Seeding complete!"

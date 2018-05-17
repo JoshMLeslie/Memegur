@@ -14,6 +14,7 @@
   max-width: 750px;
   height: 60px;
   position: fixed;
+  border-bottom: 2px solid var(--off-gray);
 
   justify-content: space-between;
   background: var(--dark-gray);
@@ -58,6 +59,7 @@
 }
 
 #image-container {
+  padding-top: 80px;
   width: 750px;
   min-height: 150px; // 5:1
   // min-height: 421px; // 16:9

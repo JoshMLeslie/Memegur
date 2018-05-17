@@ -51,10 +51,10 @@
 
 ul {
   padding: 5px;
-  position: fixed;
-  top: 65px;
+  width: 180px;
 
   li {
+    display: inline;
     padding: 5px;
     margin: 5px;
     background-color: var(--off-gray);
@@ -81,4 +81,16 @@ ul {
     flex-direction: column;
   }
 
+}
+
+.user-side-bar {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    max-width: 180px;
+    background-color: var(--mid-gray);
+    padding: 10px;
+    border-radius: 10px;
+  }
 }

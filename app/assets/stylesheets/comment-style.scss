@@ -12,7 +12,7 @@
   div, fieldset {
     background: var(--dark-gray);
     margin-bottom: 10px;
-    padding: 10px 0 0 10px;
+    padding: 10px 0 1px 10px;
     border-radius: 5px;
 
     label {
@@ -68,10 +68,23 @@
   }
 }
 
+#body a {
+  text-decoration: none;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: var(--mid-blue);
+  }
+}
+
 #body p {
   max-width: 95%;
   word-break: break-all;
   position: relative;
+
 }
 
 #comment {

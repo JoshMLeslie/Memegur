@@ -42,7 +42,8 @@ export default class PostHeader extends React.Component{
 
       const nextPost = postList.ids[nextPostIndex];
       if (nextPost === 0) {
-        change = "/404";
+        // change = "/404";
+        change = "/";
       } else {
         change = `/gallery/${nextPost}`;
       }
