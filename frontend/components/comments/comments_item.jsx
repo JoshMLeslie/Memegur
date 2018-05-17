@@ -67,7 +67,7 @@ export default class CommentItem extends React.Component {
             <label>{author.username}&nbsp;{timeDiff(commentInfo.updated_at)} ago</label>
             <p>{body}</p>
 
-            <button className={this.isAuthor() ? "" : "hidden"} onClick={this.handleDelete}>Delete!</button>
+            <button className={this.isAuthor() ? "delete-btn" : "hidden"} onClick={this.handleDelete}>Delete!</button>
           </div>
         </div>
       </section>

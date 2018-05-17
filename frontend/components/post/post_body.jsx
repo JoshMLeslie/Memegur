@@ -8,19 +8,20 @@ export default class PostBody extends React.Component {
     super(props);
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.lengthString = this.lengthString.bind(this);
   }
 
-  handleDelete() {
+  handleDelete() { // somewhat duplicated w/ comments
     this.props.deletePost(this.props.postId).then(
       this.props.history.push(`/`)
     );
   }
 
-  isAuthor () {
+  isAuthor () { // duplicated w/ comments
     return (this.props.currentPost.author_id === this.props.currentUser.id);
   }
 
-  vote(vote) {
+  vote(vote) { // duplicated w/ comments
     let settings = {
       type: "posts",
       type_id: parseInt(this.props.postId),
@@ -29,16 +30,26 @@ export default class PostBody extends React.Component {
     this.props.createVote(settings);
   }
 
+  lengthString () { // somewhat duplicated w/ comments
+    const long = this.props.sumVotes;
+
+    if (long > 0) {
+      const anS = (long > 1 ? "s" : "");
+      return (`${long} Vote${anS}`);
+    } else if (long === 0) {
+      return "0 Votes";
+    }
+  }
+
   render () {
-    const sum = this.props.sumVotes;
     return (
-      <div id="post-body">
-        <div id="post-body-contents">
+      <div className="post-body">
+        <div className="post-body-contents">
           <p>{this.props.body}</p>
 
           <div className={"flexed"}>
             <div>
-              <label>{sum}</label>
+              <label>{this.lengthString()}</label>
               <button onClick={() => this.vote(+1)}>
                 <FaArrowCircleOUp className={"icons-block"} />
               </button>
@@ -48,8 +59,8 @@ export default class PostBody extends React.Component {
             </div>
 
             <button
-              className={this.isAuthor() ? "" : "hidden"}
-              onClick={this.handleDelete}>DELETE ME
+              className={this.isAuthor() ? "delete-btn" : "hidden"}
+              onClick={this.handleDelete}>Delete!
             </button>
           </div>
         </div>

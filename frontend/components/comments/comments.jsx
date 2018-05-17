@@ -4,7 +4,7 @@ import CommentForm from './comments_form_container';
 
 export default class Comments extends React.Component {
 
-  lengthString () {
+  lengthString () { // bound in-line when called. eh.
     const list = this.props.commentsList || [];
     const long = list.length;
 
