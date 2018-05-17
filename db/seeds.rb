@@ -13,6 +13,7 @@ require 'faker'
 User.destroy_all
 Post.destroy_all
 Comment.destroy_all
+Vote.destroy_all
 
 bob = User.try(:create, {username: "Bob", password: "bobobob", bio: "Who is Bob anyways?"})
 
@@ -60,7 +61,7 @@ puts "posts starting: longest part due to fetching, about 3 minutes"
 100.times do |i|
   puts "posts halfway" if i == 50
 
-  keyword = %w(billmurray dogs cats starwars calvinandhobbes tigers woodworking disney magic fantasy scifi doctorwho avengers).sample
+  keyword = %w(billmurray dogs cats starwars calvinandhobbes tigers woodworking disney fantasy scifi doctorwho avengers).sample
   Post.create(
     title: "Is this #{keyword}?",
     body: "What is #{keyword} anyways?",
