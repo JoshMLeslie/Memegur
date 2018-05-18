@@ -1,51 +1,70 @@
 # README
-***
-# init
+
+
+## Description
+
+ToMemeOrNot is an [Imgur](https://www.imgur.com) clone, operating as a single page app, built in approx. 120 hours over the span of 10 days.
+
+* For the unfamiliar, this app allows users to:
+    * create a new, secured account
+    * login to their account at a later time
+
+
+*  Make content:
+    * upload and delete their own images and gifs as posts
+    * create and delete their own comments on posts
+
+
+*  Interact with content:
+    * up and down-vote on posts and comments
+    * view all available posts on the homepage
+    * visit other user profile pages to see their comments and posts
+
+
+* Future implementations:
+  * Front page sorting based on a posts' number of votes
+    * Similar comment sorting within each post
+  * Search
+  * Chat:
+    * User-to-User
+    * Site-wide
+
+### Technical
+  * Backend:
+    * Ruby
+      * Ruby on Rails
+    * PostgreSQL
+
+
+  * Frontend:
+    * AJAX
+    * Javascript
+      * LoDash
+    * HTML, CSS
+    * React
+      * Router
+      * Icons
+    * Redux
+      * Logger
+      * Thunk
+
+## Dev init
 
 * Ruby version: 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin16]
 
-* Pre-run setup:
-  * easy-mode ( can be buggy ):
-  ```
-  sh init.sh
-  ```
+* After entering the root dir, pre-run setup:
+  * easy-mode:
+  `sh init.sh`
   * otherwise:
-  ```
-  npm install
-  bundle install
-  rails db:setup
-  ```
+  ` bundle install && npm install && rails db:setup`
+    * then `rails server` & `npm run webpack`
 
-* How to run the test suite
+
+* Test suite:
   * pending
 
-* Deployment instructions
-  * TBD: A parachute and weeks' worth of rations is advised
+
+* Deployed:
+  * currently (18.05.18) running on Heroku linux webserver @ ToMemeOrNot.herokuapp.com
 
 ***
-# Links
-
-### Making Issue-milestones during development
-* Readme:  https://github.com/appacademy/curriculum/blob/master/full-stack-project/project/during-the-project.md
-* project-git issues page: https://github.com/JoshMLeslie/Memegur/issues/1
-
-### aA FullStack setup:
-* https://github.com/appacademy/curriculum/blob/master/full-stack-project/proposal/full-stack-project-proposal.md
-
-### Resources:
-* aA file uploading tut:
-  * https://github.com/appacademy/curriculum/tree/master/full-stack-project/resources/cdns/file_upload_demo
-
-
-* external image uploading tuts:
-  * (good): https://itnext.io/uploading-files-to-your-rails-api-6b293a4a5c90
-  * (??): https://gist.github.com/joemusacchia/fec89ea3360d5d7980b96e2bc6a39710
-
-
-* possible gems for uploading:
-  * paperclip: https://github.com/thoughtbot/paperclip
-  * ~~carrierWave: https://github.com/carrierwaveuploader/carrierwave~~
-
-### FullStack setup:
-* ~~https://github.com/appacademy/curriculum/blob/master/full-stack-project/proposal/full-stack-project-proposal.md~~
-* ~~https://github.com/appacademy/curriculum/blob/master/react/readings/checklist.md~~
