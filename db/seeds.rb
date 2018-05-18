@@ -28,7 +28,7 @@ lurkerBob = User.create(
 10.times do |i|
   User.create(
     username: Faker::BackToTheFuture.character,
-    password: "iambatman"
+    password: "iambatman",
     bio: Faker::BackToTheFuture.quote.slice(0,140)
   )
 end
@@ -36,7 +36,7 @@ end
 15.times do |i|
   User.create(
     username: Faker::HitchhikersGuideToTheGalaxy.character,
-    password: "iambatman"
+    password: "iambatman",
     bio:  Faker::HitchhikersGuideToTheGalaxy.marvin_quote
   )
 end
@@ -46,7 +46,7 @@ puts "users just over half-way"
 25.times do |i|
   User.create(
     username: Faker::Dune.character,
-    password: "iambatman"
+    password: "iambatman",
     bio:  Faker::Dune.quote.slice(0,140)
   )
 end
