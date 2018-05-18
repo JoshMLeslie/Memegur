@@ -30,7 +30,8 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = merge({},this.state);
     this.props.processForm(user).then(
-      this.props.history.push('/')
+      this.props.history.push('/'),
+      () => {}
     );
   }
 
