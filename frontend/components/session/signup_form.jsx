@@ -17,7 +17,7 @@ class SignupForm extends React.Component {
 
   componentWillUnmount() {
     // make a dispatch to clear errors:
-    // this.props.clearErors
+    this.props.clearErrors();
   }
 
   update(field) {

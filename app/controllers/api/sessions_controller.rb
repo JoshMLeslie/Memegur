@@ -14,14 +14,16 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render partial: 'api/users/user', locals: { user: @user}
     else
-      render error
+      render json: ["Invalid username/password combination"], status: 401
     end
   end
 
   def destroy
     if logged_in?
       logout
-      render json: {}
+
+      @posts = Post.all
+      render "api/posts/index"
     else
       render json: "How did this happen?", status: 418
     end

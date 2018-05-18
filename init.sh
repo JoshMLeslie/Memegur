@@ -2,9 +2,9 @@ read -p "Setup will take a hot minute. This folder must be on the desktop. Begin
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-  osascript -e 'tell application "Terminal" to do script "cd ~/Desktop/ToMemeOrNot && npm install"' && # install frontend dependencies
   bundle install && # install backend dependencies
   rails db:setup &&
+  npm install &&
 
   read -p "Start rails server and webpack? (y/n)" -n 1 -r
     echo    # (optional) move to a new line

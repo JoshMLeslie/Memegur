@@ -13,6 +13,11 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    // make a dispatch to clear errors:
+    this.props.clearErrors();
+  }
+
   update(field) {
     return (
       e => this.setState({ [field]: e.currentTarget.value })
@@ -23,7 +28,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     const user = merge({},this.state);
     this.props.processForm(user).then(
-      this.props.history.push('/')
+      () => this.props.history.push('/')
     );
   }
 

@@ -8,6 +8,7 @@ class HeaderItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleDemoUser = this.handleDemoUser.bind(this);
+    this.endSession = this.endSession.bind(this);
   }
 
   handleDemoUser (e) {
@@ -25,16 +26,23 @@ class HeaderItem extends React.Component {
     }
   }
 
+  endSession ()
+  {
+    this.props.logout().then(
+      this.props.history.push(`/`)
+    );
+
+  }
+
   render () {
     const currentUser = this.props.currentUser;
-    const logout = this.props.logout;
 
     // renders on right
     const UserIcons = () => (
       <div>
         <FaSearch className={"icons-outline"} />
       </div>
-      // search is probably going to happen ?
+      // search is going to happen eventually
       // chat
       // notifications
     );
@@ -43,7 +51,7 @@ class HeaderItem extends React.Component {
       return (
         <div id="header-user" >
           <Link to={`/users/${currentUser.id}`} > {currentUser.username} </Link>
-          <button onClick={logout}>Log Out</button>
+          <button onClick={this.endSession}>Log Out</button>
         </div>
       );
     };
