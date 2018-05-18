@@ -3,7 +3,8 @@
 
 ## Description
 
-ToMemeOrNot is an [Imgur](https://www.imgur.com) clone, operating as a single page app, built in approx. 120 hours over the span of 10 days.
+
+<a href="https://tomemeornot.herokuapp.com/" target="_blank">ToMemeOrNot</a> is an [Imgur](https://www.imgur.com) clone, operating as a single page app, built in approx. 120 hours over the span of 10 days.
 
 * For the unfamiliar, this app allows users to:
     * create a new, secured account
@@ -22,7 +23,7 @@ ToMemeOrNot is an [Imgur](https://www.imgur.com) clone, operating as a single pa
 
 
 * Future implementations:
-  * Front page sorting based on a posts' number of votes
+  * Front page sorting based on a post's number of votes
     * Similar comment sorting within each post
   * Search
   * Chat:
