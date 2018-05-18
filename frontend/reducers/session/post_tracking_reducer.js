@@ -32,7 +32,8 @@ const postTrackingReducer = (state, action) => {
     case RECEIVE_POSTS:
       // pull post IDs from ajax response, strings (?) => map to integers
       ids = Object.keys(action.posts).map(id => parseInt(id));
-      newState.ids = ids.sort( (a,b) => (a > b) );  // ensure ordering
+      newState.ids = ids.sort( (a,b) => (a - b) );
+      // ensure ordering // who makes a sort like this?
 
       // const topId = ids[ids.length - 1];     // pull highest ID
       return newState;
