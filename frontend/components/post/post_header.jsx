@@ -138,8 +138,8 @@ export default class PostHeader extends React.Component{
           </span>
         </div>
         <div id="post-header-right" >
-          <button onClick={() => this.changePage("prev")}>Prev</button >
-          <button onClick={() => this.changePage("next")}>Next</button >
+          <button onClick={() => this.changePage(-1)}>Prev</button >
+          <button onClick={() => this.changePage(1)}>Next</button >
         </div>
       </div>
     );
